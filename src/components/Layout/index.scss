@@ -1,0 +1,52 @@
+@import '~bootstrap/dist/css/bootstrap.css';
+@import '../styles/normalize';
+@import '../styles/variables';
+
+h1,h2,h3,h4,h5,h6,p,button,input,li,span,address,div {
+  font-family: $font-sans;
+}
+
+body{
+  font-family: $font-sans;
+  font-size: $regular-font-size;
+}
+
+html, body, #root{
+  position: relative;
+  height: 100%;
+  display: block;
+}
+
+.wrapper{
+  position: relative;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+  a {
+    text-decoration: none !important;
+        span {
+          text-align: center;
+          position: relative;
+          &:after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            width: 0px;
+            height: 2px;
+            transition: all 0.3s ease-in-out;
+            opacity: 0;
+            left: 0;
+            background-color: $color-black;
+          }
+        }
+    &:hover {
+        cursor: pointer;
+        span {
+          &:after {
+            width: 100%;
+            opacity: 1;
+          }
+        }
+      }
+    }

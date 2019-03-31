@@ -1,3 +1,4 @@
+const path = require('path');
 var proxy = require("http-proxy-middleware")
 
 module.exports = {
@@ -8,7 +9,15 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sass',
+    {
+      resolve: 'gatsby-plugin-sass',
+      options: {
+        includePaths: [
+          path.resolve(__dirname, './node_modules'),
+          path.resolve(__dirname, './src')
+        ]
+      }
+    },
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
