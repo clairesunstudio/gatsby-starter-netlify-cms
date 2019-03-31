@@ -10,12 +10,24 @@ nav.navbar {
     left: 0;
     padding-top: 10px;
     z-index: 999;
+    background-color: $color-white;
     .navbar-brand {
       color: $color-gray-darker;
       font-size: $larger-font-size;
       font-family: $font-style;
       transition: font-size 0.3s ease, background-color 0.3s ease;
     }
+    
+    &.navbar-fixed-top{
+      height: 35px;
+      padding-top: 0;
+      background-color: $color-white-alt;
+      .navbar-brand {
+        font-size: $title-font-size;
+        float: left;
+      }
+    }
+    
     li{
       display: inline-block;
     }
@@ -41,15 +53,7 @@ nav.navbar {
   background-color: $color-white;
 }
 
-nav.navbar.navbar-fixed-top {
-	height: 35px;
-  padding-top: 0;
-  background-color: $color-white-alt;
-  .navbar-brand {
-    font-size: $title-font-size;
-    float: left;
-  }
-}
+
 @media screen and (max-width: 991px) {
   nav.navbar{
     .navbar-brand {

@@ -21,6 +21,10 @@ html, body, #root{
   position: relative;
   min-height: 100%;
   overflow: hidden;
+  
+  .content {
+    margin-top: 70px;
+  }
 }
 
   a {
