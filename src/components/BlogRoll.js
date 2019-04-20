@@ -1,11 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
+import Card from './Card';
 
 class BlogRoll extends React.Component {
   render() {
     const { data } = this.props
     const { edges: posts } = data.allMarkdownRemark
+
+    const styles = {
+      card: {
+        maxWidth: 345,
+      },
+      media: {
+        height: 140,
+      },
+    };
 
     return (
       <div className="columns is-multiline">
