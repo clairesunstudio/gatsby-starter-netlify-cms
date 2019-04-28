@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
+import { Row, Col, Container } from 'react-bootstrap'
 import ProjectCard from '../ProjectCard'
 
 class ProjectRoll extends React.Component {
@@ -9,12 +10,16 @@ class ProjectRoll extends React.Component {
     const { edges: posts } = data.allMarkdownRemark
 
     return (
-      <div className="columns is-multiline">
-        {posts &&
-          posts.map(({ node: post }) => (
-            <ProjectCard />
-          ))}
-      </div>
+      <Container>
+        <Row noGutters>
+          {posts &&
+            posts.map(({ node: post }) => (
+              <Col>
+                <ProjectCard title={post.frontmatter.title} text={post.excerpt} buttonText={'Read More'}/>
+              </Col>
+            ))}
+        </Row>
+      </Container>
     )
   }
 }

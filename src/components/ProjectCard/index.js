@@ -2,18 +2,15 @@ import React from 'react';
 import { Button, Card } from 'react-bootstrap'
 import { Link } from 'gatsby'
 
-// import './index.scss'
-
-const ProjectCard = (props) => {
+const ProjectCard = ({ title, text, buttonText }) => {
   return (
-      <Card style={{ width: '18rem' }}>
+      <Card style={{ width: '22rem' }}>
         <Card.Body>
-          <Card.Title>Card Title</Card.Title>
+          <Card.Title>{title}</Card.Title>
           <Card.Text>
-            Some quick example text to build on the card title and make up the bulk of
-            the card's content.
+            {text}
           </Card.Text>
-          <Button variant="primary">Go somewhere</Button>
+          <Button variant="primary">{buttonText}</Button>
         </Card.Body>
       </Card>
     )
