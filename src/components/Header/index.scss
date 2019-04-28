@@ -4,13 +4,13 @@ nav.navbar {
     height: 50px;
     border-radius: 0;
     border: none;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    padding-top: 10px;
+    padding: 15px;
     z-index: 999;
     background-color: $color-white;
+
+    & > .container {
+      flex-direction: row;
+    }
     a {
       color: $color-gray-darker;
     }
@@ -21,13 +21,17 @@ nav.navbar {
       transition: font-size 0.3s ease, background-color 0.3s ease;
     }
 
+    .navbar-nav {
+      align-items: baseline;
+      & > * {
+        margin-right: 10px;
+      }
+    }
     &.navbar.fixed-top{
       height: 35px;
-      padding-top: 0;
       background-color: $color-white-alt;
       .navbar-brand {
         font-size: $h3-font-size;
-        float: left;
       }
     }
 
@@ -42,19 +46,6 @@ nav.navbar {
     }
 }
 
-.navbar-nav{
-  li{
-    float: none;
-    a{
-      color: $color-gray-darker;
-      padding: 10px;
-    }
-  }
-}
-
-.navbar-default{
-  background-color: $color-white;
-}
 
 
 @media screen and (max-width: 991px) {
@@ -66,35 +57,27 @@ nav.navbar {
 }
 
 @media screen and (max-width: 767px) {
-  .container{
-    .navbar-header{
-      margin-top: 1em;
-    }
-  }
   nav.navbar{
-    padding-top: 0;
+    margin-top: 20px;
     .navbar-brand {
       font-size: $h3-font-size;
       float: none;
     }
+    & > .container {
+      flex-direction: column;
+    }
   }
   nav.navbar.fixed-top {
+    margin-top: 0;
     transition: height 0.2s ease;
+    & > .container {
+      flex-direction: row;
+    }
     &.expanded{
       height: 100px;
     }
-    .container{
-      .navbar-header{
-        float:left;
-        display: inline-block;
-      }
-    }
     .navbar-brand {
       padding: 0 15px;
-    }
-    .navbar-nav {
-      float: right;
-      text-align: right;
     }
     .social-media-collapsed{
       display: inline-block;
@@ -111,7 +94,7 @@ nav.navbar {
 @media screen and (max-width: 600px) {
   nav.navbar{
     .navbar-brand {
-      font-size: $h3-font-size;
+      font-size: $h4-font-size;
     }
   }
 }

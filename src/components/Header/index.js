@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { Nav, Navbar } from 'react-bootstrap'
+import { Nav, Navbar, Container } from 'react-bootstrap'
 import SocialMedia from '../SocialMedia'
 import './index.scss'
 
@@ -49,16 +49,16 @@ class SiteHeader extends React.Component {
     const socialIconColor = "#263238"
     return(
       <Navbar className={connect} fixed={fixedTop ? 'top' : false }>
-        <div className="container">
+        <Container>
         <Navbar.Brand>
           <Link to="/">{brandName}</Link>
         </Navbar.Brand>
         <Nav pullRight>
-          <li><Link to="/about"><span>Resume</span></Link></li>
+          <Link to="/about"><span>Resume</span></Link>
           <li className="social-media-collapsed" onClick={()=>this.onConnectClick()}><a>Connect</a></li>
           <SocialMedia socialIconStyle={socialIconStyle} socialIconColor={socialIconColor} collapsed={connect}/>
         </Nav>
-        </div>
+        </Container>
       </Navbar>
     )
   }
