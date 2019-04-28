@@ -1,4 +1,4 @@
-@import '~bootstrap/dist/css/bootstrap.css';
+@import '~bootstrap/scss/bootstrap';
 @import '../styles/normalize';
 @import '../styles/variables';
 
@@ -8,7 +8,7 @@ h1,h2,h3,h4,h5,h6,p,button,input,li,span,address,div {
 
 body{
   font-family: $font-sans;
-  font-size: $regular-font-size;
+  font-size: $font-size-base;
 }
 
 html, body, #root{
@@ -21,7 +21,7 @@ html, body, #root{
   position: relative;
   min-height: 100%;
   overflow: hidden;
-  
+
   .content {
     margin-top: 70px;
   }

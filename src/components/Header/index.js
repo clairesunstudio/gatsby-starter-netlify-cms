@@ -4,7 +4,7 @@ import { Nav, Navbar } from 'react-bootstrap'
 import SocialMedia from '../SocialMedia'
 import './index.scss'
 
-class Header extends React.Component {
+class SiteHeader extends React.Component {
 
     constructor(props) {
       super(props);
@@ -29,11 +29,11 @@ class Header extends React.Component {
         });
       }
     }
-    
+
     componentDidMount() {
       window.addEventListener("scroll", this.handleScroll);
     }
-    
+
     componentWillUnmount() {
       window.removeEventListener("scroll", this.handleScroll);
     }
@@ -48,21 +48,21 @@ class Header extends React.Component {
     }
     const socialIconColor = "#263238"
     return(
-      <Navbar className={connect} fixedTop={fixedTop}>
-        <Navbar.Header>
-          <Navbar.Brand>
-            <Link to="/">{brandName}</Link>
-          </Navbar.Brand>
-        </Navbar.Header>
-          <Nav pullRight>
-            <li><Link to="/about"><span>Resume</span></Link></li>
-            <li className="social-media-collapsed" onClick={()=>this.onConnectClick()}><a>Connect</a></li>
-            <SocialMedia socialIconStyle={socialIconStyle} socialIconColor={socialIconColor} collapsed={connect}/>
-          </Nav>
+      <Navbar className={connect} fixed={fixedTop ? 'top' : false }>
+        <div className="container">
+        <Navbar.Brand>
+          <Link to="/">{brandName}</Link>
+        </Navbar.Brand>
+        <Nav pullRight>
+          <li><Link to="/about"><span>Resume</span></Link></li>
+          <li className="social-media-collapsed" onClick={()=>this.onConnectClick()}><a>Connect</a></li>
+          <SocialMedia socialIconStyle={socialIconStyle} socialIconColor={socialIconColor} collapsed={connect}/>
+        </Nav>
+        </div>
       </Navbar>
     )
   }
 
 }
 
-export default Header
+export default SiteHeader

@@ -11,23 +11,26 @@ nav.navbar {
     padding-top: 10px;
     z-index: 999;
     background-color: $color-white;
+    a {
+      color: $color-gray-darker;
+    }
     .navbar-brand {
       color: $color-gray-darker;
-      font-size: $larger-font-size;
+      font-size: $h1-font-size;
       font-family: $font-style;
       transition: font-size 0.3s ease, background-color 0.3s ease;
     }
-    
-    &.navbar-fixed-top{
+
+    &.navbar.fixed-top{
       height: 35px;
       padding-top: 0;
       background-color: $color-white-alt;
       .navbar-brand {
-        font-size: $title-font-size;
+        font-size: $h3-font-size;
         float: left;
       }
     }
-    
+
     li{
       display: inline-block;
     }
@@ -39,7 +42,7 @@ nav.navbar {
     }
 }
 
-.navbar-default .navbar-nav{
+.navbar-nav{
   li{
     float: none;
     a{
@@ -57,7 +60,7 @@ nav.navbar {
 @media screen and (max-width: 991px) {
   nav.navbar{
     .navbar-brand {
-      font-size: $title-font-size;
+      font-size: $h3-font-size;
     }
   }
 }
@@ -71,11 +74,11 @@ nav.navbar {
   nav.navbar{
     padding-top: 0;
     .navbar-brand {
-      font-size: $title-font-size;
+      font-size: $h3-font-size;
       float: none;
     }
   }
-  nav.navbar.navbar-fixed-top {
+  nav.navbar.fixed-top {
     transition: height 0.2s ease;
     &.expanded{
       height: 100px;
@@ -108,7 +111,7 @@ nav.navbar {
 @media screen and (max-width: 600px) {
   nav.navbar{
     .navbar-brand {
-      font-size: $title-font-size;
+      font-size: $h3-font-size;
     }
   }
 }
