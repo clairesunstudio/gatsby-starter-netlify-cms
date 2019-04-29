@@ -14,7 +14,7 @@ class ProjectRoll extends React.Component {
         {posts &&
           posts.map(({ node: post }) => (
             <Col>
-              <ProjectCard title={post.frontmatter.title} text={post.excerpt} image={post.frontmatter.image} button={{ link: post.fields.slug, text: 'Learn More'}}/>
+              <ProjectCard title={post.frontmatter.title} text={post.frontmatter.description} image={post.frontmatter.image} button={{ link: post.fields.slug, text: 'Learn More'}}/>
             </Col>
           ))}
       </Row>
@@ -36,11 +36,11 @@ export default () => (
       query ProjectRollQuery {
         allMarkdownRemark(
           sort: { order: DESC, fields: [frontmatter___date] }
-          filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
+          filter: { frontmatter: { templateKey: { eq: "project" } } }
         ) {
           edges {
             node {
-              excerpt(pruneLength: 400)
+              excerpt(pruneLength: 200)
               id
               fields {
                 slug
@@ -49,6 +49,7 @@ export default () => (
                 title
                 templateKey
                 date(formatString: "MMMM DD, YYYY")
+                description
                 image {
                   childImageSharp {
                     fluid(maxWidth: 240, quality: 64) {
