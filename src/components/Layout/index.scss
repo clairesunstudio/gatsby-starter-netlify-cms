@@ -19,11 +19,11 @@ html, body, #root{
 
 .wrapper{
   position: relative;
-  min-height: 100%;
+  min-height: 100vh;
   overflow: hidden;
 
   .content {
-    margin-top: 70px;
+    padding-bottom: 5rem;
   }
 }
 
