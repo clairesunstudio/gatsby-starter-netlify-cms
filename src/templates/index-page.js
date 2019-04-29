@@ -11,7 +11,6 @@ export const IndexPageTemplate = ({
   intro,
 }) => (
   <Container>
-    <Features gridItems={intro.blurbs} />
     <BlogRoll />
   </Container>
 )
@@ -68,13 +67,6 @@ export const pageQuery = graphql`
             }
           }
         }
-        heading
-        subheading
-        mainpitch {
-          title
-          description
-        }
-        description
         intro {
           blurbs {
             image {

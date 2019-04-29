@@ -14,7 +14,7 @@ class ProjectRoll extends React.Component {
         {posts &&
           posts.map(({ node: post }) => (
             <Col>
-              <ProjectCard title={post.frontmatter.title} text={post.excerpt} buttonText={'Read More'}/>
+              <ProjectCard title={post.frontmatter.title} text={post.excerpt} image={post.frontmatter.image} button={{ link: post.fields.slug, text: 'Learn More'}}/>
             </Col>
           ))}
       </Row>
@@ -49,6 +49,13 @@ export default () => (
                 title
                 templateKey
                 date(formatString: "MMMM DD, YYYY")
+                image {
+                  childImageSharp {
+                    fluid(maxWidth: 240, quality: 64) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
               }
             }
           }

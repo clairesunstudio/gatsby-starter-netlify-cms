@@ -1,6 +1,6 @@
 import React from 'react'
 import SocialMedia from '../SocialMedia'
-import { Col } from 'react-bootstrap'
+import { Col, Row, Container } from 'react-bootstrap'
 
 import './index.scss'
 
@@ -12,14 +12,16 @@ class Footer extends React.Component{
     const socialIconColor = "#fff"
     return (
       <footer>
-        <div className="container">
+        <Container>
+          <Row>
             <Col sm={6}>
-                <p><strong>© 2017 Claire Sun Studio </strong></p>
+              <p><strong>© 2017 Claire Sun Studio </strong></p>
             </Col>
             <Col sm={6}>
-            <SocialMedia socialIconStyle={socialIconStyle} socialIconColor={socialIconColor}/>
+              <SocialMedia socialIconStyle={socialIconStyle} socialIconColor={socialIconColor}/>
             </Col>
-        </div>
+          </Row>
+        </Container>
       </footer>
 
     );

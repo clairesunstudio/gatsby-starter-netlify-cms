@@ -3,16 +3,16 @@ import { Button, Card } from 'react-bootstrap'
 import { Link } from 'gatsby'
 import PreviewCompatibleImage from '../PreviewCompatibleImage'
 
-const ProjectCard = ({ title, text, buttonText, image }) => {
+const ProjectCard = ({ title, text, button, image }) => {
   return (
       <Card style={{ width: '22rem' }}>
+        { image && <PreviewCompatibleImage imageInfo={image} />}
         <Card.Body>
-          { image && <PreviewCompatibleImage imageInfo={image} />}
           <Card.Title>{title}</Card.Title>
           <Card.Text>
             {text}
           </Card.Text>
-          { buttonText && <Button variant="primary">{buttonText}</Button>}
+          { button && <Link to={button.link} variant="primary">{button.text}</Link>}
         </Card.Body>
       </Card>
     )
