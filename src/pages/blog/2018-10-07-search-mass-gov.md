@@ -14,7 +14,7 @@ tags:
   - Project Management
   - UX
   - User testing
-image: /img/olddeath-percentage-age.png
+image: /img/old/death-percentage-age.png
 ---
 ![Search.mass.gov homepage](/img/search.jpg)
 
