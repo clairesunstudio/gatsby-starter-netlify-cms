@@ -14,7 +14,7 @@
      .gridItem__cover-content{
        padding: 15px;
        h3{
-        font-size:$base-font-size;
+        font-size:$font-size-base;
         text-transform: capitalize;
         font-weight: $font-bold;
         margin: 5px auto;
@@ -22,7 +22,7 @@
         padding-bottom: 5px;
        }
        p{
-        font-size:$regular-font-size;
+        font-size:$font-size-base;
         margin-top: 0;
        }
      }
