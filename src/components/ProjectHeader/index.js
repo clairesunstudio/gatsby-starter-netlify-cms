@@ -3,15 +3,7 @@ import { Col, Button, Row, Container } from 'react-bootstrap'
 import './index.scss'
 
 
-const LiveSite = ({live_site}) => {
-  if (live_site != "") {
-    return <Button className="btn-project" href={live_site}>Visit Live Site</Button>
-  } else {
-    return null
-  }
-}
-
-const Header = ({title,subtitle, live_site}) => (
+const Header = ({ title,subtitle, href }) => (
     <header>
       <Container>
         <Row>
@@ -19,7 +11,9 @@ const Header = ({title,subtitle, live_site}) => (
             <h1>{title}</h1>
             <hr />
             <h3>{subtitle}</h3>
-            <LiveSite live_site={live_site} />
+            { href && href !== "" && (
+              <Button variant="outline-dark" href={href}>Visit Live Site</Button>
+            )}
           </Col>
         </Row>
       </Container>
