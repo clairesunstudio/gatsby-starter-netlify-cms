@@ -4,6 +4,8 @@ backend:
 
 media_folder: static/img
 public_folder: /img
+publish_mode: editorial_workflow    # Add these lines without any indentation
+media_folder: "assets/images"
 
 collections:
   - name: "blog"
@@ -29,23 +31,31 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "project"}
       - {label: "Title", name: "title", widget: "string"}
+            - {label: "Description", name: "description", widget: "text"}
       - {label: Image, name: image, widget: image}
       - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Description", name: "description", widget: "text"}
       - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Tags", name: "tags", widget: "list"}
-    widget: "list"
-      types:
-        - label: "Carousel"
-          name: "carousel"
-          widget: object
-          fields:
-            - {label: Header, name: header, widget: string, default: "Image Gallery"}
-            - {label: Template, name: template, widget: string, default: "carousel.html"}
-            - label: Images
-              name: images
-              widget: list
-              field: {label: Image, name: image, widget: image}
+      - label: "Home Section"
+        name: "sections"
+        widget: "list"
+        widgets:
+          - label: "Carousel"
+            name: "carousel"
+            widget: object
+            fields:
+              - {label: Header, name: header, widget: string, default: "Image Gallery"}
+              - {label: Template, name: template, widget: string, default: "carousel.html"}
+              - label: Images
+                name: images
+                widget: list
+                field: {label: Image, name: image, widget: image}
+          - label: "Spotlight"
+            name: "spotlight"
+            widget: object
+            fields:
+              - {label: Header, name: header, widget: string, default: "Spotlight"}
+              - {label: Template, name: template, widget: string, default: "spotlight.html"}
+              - {label: Text, name: text, widget: text, default: "Hello World"}
 
   - name: "pages"
     label: "Pages"
