@@ -1,7 +1,7 @@
 ---
 templateKey: project
 title: Search Mass.gov
-image: /img/search.jpg
+image: /img/project/search.jpg
 date: 2019-06-02T22:42:51.326Z
 description: The search application powering Mass.gov
 tags:
