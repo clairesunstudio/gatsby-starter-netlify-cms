@@ -4,14 +4,14 @@ import { Link, graphql } from 'gatsby'
 import { Row, Col, Container } from 'react-bootstrap'
 import Layout from '../components/Layout'
 import Features from '../components/Features'
-import BlogRoll from '../components/ProjectRoll'
+import ProjectRoll from '../components/ProjectRoll'
 
 export const IndexPageTemplate = ({
   description,
   intro,
 }) => (
   <Container>
-    <BlogRoll />
+    <ProjectRoll />
   </Container>
 )
 
