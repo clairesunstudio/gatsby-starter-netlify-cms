@@ -12,7 +12,7 @@ const LiveSite = ({live_site}) => {
 }
 
 const Header = ({title,subtitle, live_site}) => (
-    <header>
+    <header className="project-header">
       <Container>
         <Row>
           <Col md={8}>

@@ -6,13 +6,13 @@ description: An interactive data story on Massachusetts opioid epidemic.
 tags:
   - flavor
   - tasting
-image: /img/project/chapter55.jpg
+image: /img/chapter55.jpg
 ---
 
 ## Overview
 I worked closely with the data team and the Department of Public Health on visualizing the statistics of opioid usage in Massachusetts and created an interactive data story to engage the public on this subject. In this project, my work includes concept sketching, data visualization design, prototyping, website development and deployment. I also conducted user and accessibility testing to meet the 508 compliance.
 
-![Bsas percentage design](/img/chapter55/bsas-percentage.png)
+![Bsas percentage design](/img/chapter55.jpg)
 
 ## Background
 

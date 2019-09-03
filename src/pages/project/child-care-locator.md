@@ -1,7 +1,7 @@
 ---
 templateKey: project
 title: Child Care Program Search
-image: /img/project/childcare.jpg
+image: /img/search.jpg
 date: 2019-04-30T04:26:43.334Z
 description: A Geolocation search for the Massachusetts Child Care Programs
 ---

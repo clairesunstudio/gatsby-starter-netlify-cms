@@ -5,7 +5,7 @@
     50%{background-position:100% 50%}
     100%{background-position:200% 50%}
 }
-header{
+.project-header{
     background: linear-gradient(to left, $color-blue-light, $color-purple, $color-pink, $color-purple,$color-blue-light);
     background-size: 400% 400%;
     animation: AnimationName 60s ease infinite;
