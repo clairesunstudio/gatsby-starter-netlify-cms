@@ -9,6 +9,9 @@ footer{
   width: 100%;
   text-align: center;
   display: block;
+  .row {
+    width: 100%;
+  }
   @media screen and (min-width: 768px){
     & > .container {
       display: inline-flex;
@@ -19,8 +22,5 @@ footer{
         }
       }
     }
-  }
-  p{
-    margin-top: 7px;
   }
 }

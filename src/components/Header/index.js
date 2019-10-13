@@ -54,9 +54,8 @@ class SiteHeader extends React.Component {
           <Link to="/">{brandName}</Link>
         </Navbar.Brand>
         <Nav pullRight>
-          <Link to="/about"><span>Resume</span></Link>
-          <li className="social-media-collapsed" onClick={()=>this.onConnectClick()}><a>Connect</a></li>
-          <SocialMedia socialIconStyle={socialIconStyle} socialIconColor={socialIconColor} collapsed={connect}/>
+          <Link to="/"><span>My Portfolio</span></Link>
+          <Link to="/about"><span>My Resume</span></Link>
         </Nav>
         </Container>
       </Navbar>

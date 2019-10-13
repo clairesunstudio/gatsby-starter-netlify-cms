@@ -14,10 +14,10 @@ class Footer extends React.Component{
       <footer>
         <Container>
           <Row>
-            <Col sm={6}>
+            <Col>
               <p><strong>© 2017 Claire Sun Studio </strong></p>
             </Col>
-            <Col sm={6}>
+            <Col>
               <SocialMedia socialIconStyle={socialIconStyle} socialIconColor={socialIconColor}/>
             </Col>
           </Row>

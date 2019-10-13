@@ -10,14 +10,16 @@ class ProjectRoll extends React.Component {
     const { edges: posts } = data.allMarkdownRemark
 
     return (
-      <Row noGutters>
-        {posts &&
-          posts.map(({ node: post }) => (
-            <Col>
-              <ProjectCard title={post.frontmatter.title} text={post.frontmatter.description} image={post.frontmatter.image} button={{ link: post.fields.slug, text: 'Learn More'}}/>
-            </Col>
-          ))}
-      </Row>
+      <Container fluid>
+        <Row>
+          {posts &&
+            posts.map(({ node: post }) => (
+              <Col lg={4}>
+                <ProjectCard title={post.frontmatter.title} text={post.frontmatter.description} image={post.frontmatter.image} button={{ link: post.fields.slug, text: 'Learn More'}}/>
+              </Col>
+            ))}
+        </Row>
+      </Container>
     )
   }
 }
