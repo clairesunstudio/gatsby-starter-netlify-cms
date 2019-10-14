@@ -1,0 +1,47 @@
+// Overwrite Bootstrap's variables here
+// You can find them in node_modules/bootstrap/scss/_variables.scss
+// Copy the variables you need into this file, don't modify files under node_modules/
+
+// Some example variables that you can uncomment:
+
+// Enabling shadows and gradients
+//$enable-shadows: true;
+//$enable-gradients: true;
+
+// Changing the body background and text
+//$body-bg: #d3e9eb;
+//$body-color: #151417;
+
+// Theme colors
+$c-theme-blue: #14558f;
+$c-theme-green: #43956f;
+$c-theme-gray: #535353;
+$c-theme-yellow: #f6c51b;
+$c-red: #cd0d0d;
+$c-white: white;
+$c-black: #141414;
+$c-gray-f2f2f2: #f2f2f2;
+$c-gray-dcdcdc: #dcdcdc;
+$c-gray-a6a6a6: #a6a6a6;
+$c-gray-707070: #707070;
+$c-gray-757575: #757575;
+// Changing the theme colors
+$primary: $c-black;
+$secondary: $c-theme-blue;
+$success: $c-theme-green;
+$info: #535353;
+$warning: $c-theme-yellow;
+$danger: $c-red;
+$light: $c-gray-f2f2f2;
+$dark: $c-black;
+
+// Changing the variables relating to buttons
+// $border-radius: 0;
+// $border-width: 3px;
+// $btn-font-weight: 700;
+// $btn-box-shadow: 0 0.25rem 0.5rem rgba($dark, 0.25);
+
+// Adding (!) an additional theme color (ex. classes btn-cool, bg-cool)
+//$theme-colors: (
+//  "cool": #4d3fa3
+//);

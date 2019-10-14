@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
-import { Container, Col, Button } from 'react-bootstrap'
+import { Container, Row, Col, Button } from 'react-bootstrap'
 import './About.scss'
 import SkillCloud from '../components/resume/SkillCloud'
 import SectionHeader from '../components/resume/SectionHeader'
@@ -13,20 +13,21 @@ import { Timeline, TimelineEvent } from '../components/resume/Timeline'
 import Icon from '../components/resume/Icon'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 
-export const AboutPageTemplate = ({ title, content, contentComponent, image }) => {
+export const AboutPageTemplate = ({ title, content, contentComponent, image, name, job, blurb }) => {
   const PageContent = contentComponent || Content
 
   return (
     <div className="resume_container">
       <header className="project-header thin"></header>
       <Container>
-        <Col className="about">
+        <Row>
+        <Col>
           <div className="about-row">
             <div className="about-section">
               <PreviewCompatibleImage imageInfo={image} className="profile_pic" />
-              <h2>Minghua Sun</h2>
-              <h4>Creative Technologist, UX Engineer</h4>
-              <p>I wear many hats in various projects — conducting user research, translating requirements into wireframes, writing and reviewing code, creating data visualizations and venturing into data analytics. I&apos;m the Product Owner of the Commonwealth Design System and I sometimes PM technical projects.</p>
+              <h2>{name}</h2>
+              <h4>{job}</h4>
+              <p>{blurb}</p>
               <Button bsStyle='tab' onClick={() => window.print()} download="Minghua's Resume">Print Resume</Button>
             </div>
             <div className="about-section">
@@ -155,6 +156,7 @@ export const AboutPageTemplate = ({ title, content, contentComponent, image }) =
           </TimelineEvent>
         </Timeline>
         </Col>
+        </Row>
       </Container>
     </div>
   )
@@ -168,14 +170,14 @@ AboutPageTemplate.propTypes = {
 
 const AboutPage = ({ data }) => {
   const { markdownRemark: post } = data
-
+  const { title, ...rest } = post.frontmatter;
   return (
     <Layout>
       <AboutPageTemplate
         contentComponent={HTMLContent}
         title={post.frontmatter.title}
         content={post.html}
-        image={post.frontmatter.image}
+        { ...rest }
       />
     </Layout>
   )
@@ -193,6 +195,9 @@ export const aboutPageQuery = graphql`
       html
       frontmatter {
         title
+        name
+        job
+        blurb
         image {
           childImageSharp {
             fluid(maxWidth: 240, quality: 64) {
