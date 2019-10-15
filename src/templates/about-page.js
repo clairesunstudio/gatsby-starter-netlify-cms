@@ -13,9 +13,8 @@ import { Timeline, TimelineEvent } from '../components/resume/Timeline'
 import Icon from '../components/resume/Icon'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 
-export const AboutPageTemplate = ({ title, content, contentComponent, image, name, job, blurb }) => {
+export const AboutPageTemplate = ({ title, content, contentComponent, image, name, job, blurb, info }) => {
   const PageContent = contentComponent || Content
-
   return (
     <div className="resume_container">
       <header className="project-header thin"></header>
@@ -32,11 +31,16 @@ export const AboutPageTemplate = ({ title, content, contentComponent, image, nam
             </div>
             <div className="about-section">
               <ul className="info_list">
-              <li><Icon name='phone'/><a href="tel:6178341062"> <span>+1 (617) 834-1062</span></a></li>
-              <li><Icon name='location'/> Boston, MA</li>
-              <li><Icon name='website'/><a href="https://clairesunstudio.com"> <span>clairesunstudio.com</span></a></li>
-              <li><Icon name='email'/><a href="mailto:clairesunstudio@gmail.com"> <span>clairesunstudio@gmail.com</span></a></li>
-              <li><Icon name='github'/><a href="https://github.com/clairesunstudio"> <span>@clairesunstudio</span></a></li>
+              {
+                info.map((item, index) => (
+                  <li>
+                    <PreviewCompatibleImage imageInfo={item.icon} />
+                    {
+                      item.href ? (<a href={item.href}> <span>{item.text}</span></a>) : (<span> {item.text}</span>)
+                    }
+                  </li>
+                ))
+              }
               </ul>
             </div>
           </div>
@@ -204,6 +208,19 @@ export const aboutPageQuery = graphql`
               ...GatsbyImageSharpFluid
             }
           }
+        }
+        info {
+          icon {
+            childImageSharp {
+              fluid(maxWidth: 240, quality: 64) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+            extension
+            publicURL
+          }
+          href
+          text
         }
       }
     }
