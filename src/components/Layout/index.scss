@@ -54,4 +54,11 @@ html, body, #root{
           }
         }
       }
+
+    &.active {
+      background: $c-black;
+      span {
+        color: $c-white;
+      }
+    }
     }
