@@ -24,6 +24,13 @@ html, body, #root{
 
   .content {
     padding-bottom: 10rem;
+
+    @media screen and (max-width: 767px) {
+      margin-top:3rem;
+    }
+    @media screen and (max-width: 300px) {
+      margin-top:3rem;
+    }
   }
 }
 
