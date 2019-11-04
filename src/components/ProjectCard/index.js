@@ -2,13 +2,20 @@ import React from 'react';
 import { Button, Card } from 'react-bootstrap'
 import { Link, navigate } from 'gatsby'
 import PreviewCompatibleImage from '../PreviewCompatibleImage'
+import './index.scss'
+
+export const cardWidth = 350;
 
 const ProjectCard = ({ title, text, button, image }) => {
   return (
-      <Card style={{ width: '350px', margin: 'auto' }}
+      <Card
+        style={{ width: `${350}px` }}
         onClick={(e) => navigate(button.link)}>
         { image && (
-          <Link to={button.link}>
+          <Link
+            style={{ padding: '5px' }}
+            to={button.link}
+          >
             <PreviewCompatibleImage imageInfo={image} />
           </Link>
         )}

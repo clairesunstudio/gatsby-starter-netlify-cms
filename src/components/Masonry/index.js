@@ -5,14 +5,20 @@ import shuffle from 'lodash/shuffle'
 import useMeasure from './useMeasure'
 import useMedia from './useMedia'
 import { Link, graphql, StaticQuery } from 'gatsby'
-import ProjectCard from '../ProjectCard'
+import ProjectCard, { cardWidth } from '../ProjectCard'
 // import data from './data'
 import './index.scss'
 
 const Masonry = ({ data }) => {
   const { edges: posts } = data.allMarkdownRemark
   // Hook1: Tie media queries to the number of columns
-  const columns = useMedia(['(min-width: 1750px)', '(min-width: 1400px)', '(min-width: 1050px)', '(min-width: 750px)'], [5, 4, 3, 2], 1)
+  const columns = useMedia([
+    `(min-width: ${cardWidth * 5}px)`,
+    `(min-width: ${cardWidth * 4}px)`, 
+    `(min-width: ${cardWidth * 3}px)`,
+    `(min-width: ${cardWidth * 2}px)`],
+    [5, 4, 3, 2], 1
+  )
   // Hook2: Measure the width of the container element
   const [bind, { width }] = useMeasure()
   // Hook3: Hold items
@@ -41,7 +47,7 @@ const Masonry = ({ data }) => {
   console.log(transitions)
   // Render the grid
   return (
-    <div {...bind} class="list" style={{ height: Math.max(...heights) }}>
+    <div {...bind} class="masonry" style={{ height: Math.max(...heights) }}>
       {transitions.map(({ item, props: { xy, ...rest }, key }) => {
         return(<a.div key={key} style={{ transform: xy.interpolate((x, y) => `translate3d(${x}px,${y}px,0)`), ...rest }}>
           <ProjectCard title={item.frontmatter.title} text={item.frontmatter.description} image={item.frontmatter.image} button={{ link: item.fields.slug, text: 'Learn More'}}/>
