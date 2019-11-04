@@ -32,39 +32,39 @@ ProjectRoll.propTypes = {
   }),
 }
 
-export default () => (
-  <StaticQuery
-    query={graphql`
-      query ProjectRollQuery {
-        allMarkdownRemark(
-          sort: { order: DESC, fields: [frontmatter___date] }
-          filter: { frontmatter: { templateKey: { eq: "project" } } }
-        ) {
-          edges {
-            node {
-              excerpt(pruneLength: 200)
-              id
-              fields {
-                slug
-              }
-              frontmatter {
-                title
-                templateKey
-                date(formatString: "MMMM DD, YYYY")
-                description
-                image {
-                  childImageSharp {
-                    fluid(maxWidth: 240, quality: 64) {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    `}
-    render={(data, count) => <ProjectRoll data={data} count={count} />}
-  />
-)
+// export default () => (
+//   <StaticQuery
+//     query={graphql`
+//       query ProjectRollQuery {
+//         allMarkdownRemark(
+//           sort: { order: DESC, fields: [frontmatter___date] }
+//           filter: { frontmatter: { templateKey: { eq: "project" } } }
+//         ) {
+//           edges {
+//             node {
+//               excerpt(pruneLength: 200)
+//               id
+//               fields {
+//                 slug
+//               }
+//               frontmatter {
+//                 title
+//                 templateKey
+//                 date(formatString: "MMMM DD, YYYY")
+//                 description
+//                 image {
+//                   childImageSharp {
+//                     fluid(maxWidth: 240, quality: 64) {
+//                       ...GatsbyImageSharpFluid
+//                     }
+//                   }
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       }
+//     `}
+//     render={(data, count) => <ProjectRoll data={data} count={count} />}
+//   />
+// )
