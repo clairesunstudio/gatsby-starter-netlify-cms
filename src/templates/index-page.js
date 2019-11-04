@@ -4,7 +4,7 @@ import { Link, graphql } from 'gatsby'
 import { Row, Col, Container } from 'react-bootstrap'
 import Layout from '../components/Layout'
 import Features from '../components/Features'
-import ProjectRoll from '../components/Masonry'
+import Masonry from '../components/Masonry'
 import Divider from '../components/Divider'
 
 export const IndexPageTemplate = ({
@@ -12,7 +12,7 @@ export const IndexPageTemplate = ({
   intro,
 }) => (
   <Fragment>
-    <ProjectRoll />
+    <Masonry />
   </Fragment>
 )
 

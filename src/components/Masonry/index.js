@@ -11,10 +11,16 @@ import './index.scss'
 
 const Masonry = ({ data }) => {
   const { edges: posts } = data.allMarkdownRemark
+  let allTags = [];
+  const tags = posts.forEach((post) => {
+    allTags = allTags.concat(post.node.frontmatter.tags)
+  })
+  const distinctTags = [...new Set(allTags)]
+  console.log(distinctTags)
   // Hook1: Tie media queries to the number of columns
   const columns = useMedia([
     `(min-width: ${cardWidth * 5}px)`,
-    `(min-width: ${cardWidth * 4}px)`, 
+    `(min-width: ${cardWidth * 4}px)`,
     `(min-width: ${cardWidth * 3}px)`,
     `(min-width: ${cardWidth * 2}px)`],
     [5, 4, 3, 2], 1
@@ -44,7 +50,6 @@ const Masonry = ({ data }) => {
     config: { mass: 5, tension: 500, friction: 100 },
     trail: 25
   })
-  console.log(transitions)
   // Render the grid
   return (
     <div {...bind} class="masonry" style={{ height: Math.max(...heights) }}>
@@ -74,6 +79,7 @@ export default () => (
                 slug
               }
               frontmatter {
+                tags
                 title
                 templateKey
                 date(formatString: "MMMM DD, YYYY")
