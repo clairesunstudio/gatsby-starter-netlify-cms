@@ -1,8 +1,9 @@
 @import 'variables';
 
-.card{
+.card {
   margin-top: 1rem;
-  width: 100%;
+  width: 350px;
+  border: 1px solid $dark;
 
   &:hover {
    box-shadow: 0 0 2em 0 rgba($color-gray-dark,1);
