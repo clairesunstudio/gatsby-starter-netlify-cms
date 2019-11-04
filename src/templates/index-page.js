@@ -12,8 +12,7 @@ export const IndexPageTemplate = ({
   intro,
 }) => (
   <Fragment>
-    <Divider />
-      <ProjectRoll />
+    <ProjectRoll />
   </Fragment>
 )
 

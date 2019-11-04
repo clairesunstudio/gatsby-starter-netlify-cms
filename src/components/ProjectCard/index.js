@@ -5,7 +5,7 @@ import PreviewCompatibleImage from '../PreviewCompatibleImage'
 
 const ProjectCard = ({ title, text, button, image }) => {
   return (
-      <Card style={{ minWidth: '22rem' }}
+      <Card style={{ width: '350px', margin: 'auto' }}
         onClick={(e) => navigate(button.link)}>
         { image && (
           <Link to={button.link}>

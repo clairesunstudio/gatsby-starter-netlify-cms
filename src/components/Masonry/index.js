@@ -12,10 +12,9 @@ import './index.scss'
 const Masonry = ({ data }) => {
   const { edges: posts } = data.allMarkdownRemark
   // Hook1: Tie media queries to the number of columns
-  const columns = useMedia(['(min-width: 1500px)', '(min-width: 1000px)', '(min-width: 600px)'], [5, 4, 3], 2)
+  const columns = useMedia(['(min-width: 1750px)', '(min-width: 1400px)', '(min-width: 1050px)', '(min-width: 750px)'], [5, 4, 3, 2], 1)
   // Hook2: Measure the width of the container element
   const [bind, { width }] = useMeasure()
-  console.log(width)
   // Hook3: Hold items
   const [items, set] = useState(posts)
   // Hook4: shuffle data every 2 seconds
@@ -24,9 +23,10 @@ const Masonry = ({ data }) => {
   let heights = new Array(columns).fill(0) // Each column gets a height starting with zero
   let gridItems = items.map(({ node: item }, i) => {
     const column = heights.indexOf(Math.min(...heights)) // Basic masonry-grid placing, puts tile into the smallest column using Math.min
+    const columnWidth = width / columns;
     const rowHeight = 400;
-    const xy = [(width / columns) * column, (heights[column] += rowHeight) - rowHeight] // X = container width / number of columns * column index, Y = it's just the height of the current column
-    return { ...item, xy, width: width / columns, height: rowHeight  }
+    const xy = [columnWidth * column, (heights[column] += rowHeight) - rowHeight] // X = container width / number of columns * column index, Y = it's just the height of the current column
+    return { ...item, xy, width: columnWidth, height: rowHeight  }
   })
 
   // Hook5: Turn the static grid values into animated transitions, any addition, removal or change will be animated
