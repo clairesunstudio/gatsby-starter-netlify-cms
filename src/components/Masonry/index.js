@@ -5,7 +5,7 @@ import shuffle from 'lodash/shuffle'
 import useMeasure from './useMeasure'
 import useMedia from './useMedia'
 import { Link, graphql, StaticQuery } from 'gatsby'
-import ProjectCard, { cardWidth } from '../ProjectCard'
+import ProjectCard, { cardWidth, cardPadding } from '../ProjectCard'
 // import data from './data'
 import './index.scss'
 
@@ -19,10 +19,10 @@ const Masonry = ({ data }) => {
   console.log(distinctTags)
   // Hook1: Tie media queries to the number of columns
   const columns = useMedia([
-    `(min-width: ${cardWidth * 5}px)`,
-    `(min-width: ${cardWidth * 4}px)`,
-    `(min-width: ${cardWidth * 3}px)`,
-    `(min-width: ${cardWidth * 2}px)`],
+    `(min-width: ${(cardWidth + cardPadding * 2) * 5}px)`,
+    `(min-width: ${(cardWidth + cardPadding * 2) * 4}px)`,
+    `(min-width: ${(cardWidth + cardPadding * 2) * 3}px)`,
+    `(min-width: ${(cardWidth + cardPadding * 2) * 2}px)`],
     [5, 4, 3, 2], 1
   )
   // Hook2: Measure the width of the container element

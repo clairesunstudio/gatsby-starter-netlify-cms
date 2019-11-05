@@ -5,15 +5,16 @@ import PreviewCompatibleImage from '../PreviewCompatibleImage'
 import './index.scss'
 
 export const cardWidth = 350;
+export const cardPadding = 5;
 
 const ProjectCard = ({ title, text, button, image }) => {
   return (
       <Card
-        style={{ width: `${350}px` }}
-        onClick={(e) => navigate(button.link)}>
+        style={{ width: `${cardWidth}px` }}
+        onClick={() => navigate(button.link)}>
         { image && (
           <Link
-            style={{ padding: '5px' }}
+            style={{ padding: `${cardPadding}px` }}
             to={button.link}
           >
             <PreviewCompatibleImage imageInfo={image} />
