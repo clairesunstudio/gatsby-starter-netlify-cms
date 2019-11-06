@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
+import Divider from '../components/Divider'
 import { Container, Row, Col, Button } from 'react-bootstrap'
 import './About.scss'
 import SkillCloud from '../components/resume/SkillCloud'
@@ -16,8 +17,8 @@ import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 export const AboutPageTemplate = ({ title, content, contentComponent, image, name, job, blurb, info }) => {
   const PageContent = contentComponent || Content
   return (
-    <div className="resume_container">
-      <header className="project-header thin"></header>
+    <Fragment>
+      <Divider />
       <Container>
         <Row>
         <Col>
@@ -162,7 +163,7 @@ export const AboutPageTemplate = ({ title, content, contentComponent, image, nam
         </Col>
         </Row>
       </Container>
-    </div>
+    </Fragment>
   )
 }
 

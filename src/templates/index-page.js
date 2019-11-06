@@ -1,18 +1,19 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import { Row, Col, Container } from 'react-bootstrap'
 import Layout from '../components/Layout'
 import Features from '../components/Features'
-import ProjectRoll from '../components/ProjectRoll'
+import Masonry from '../components/Masonry'
+import Divider from '../components/Divider'
 
 export const IndexPageTemplate = ({
   description,
   intro,
 }) => (
-  <Container>
-    <ProjectRoll />
-  </Container>
+  <Fragment>
+    <Masonry />
+  </Fragment>
 )
 
 IndexPageTemplate.propTypes = {

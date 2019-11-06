@@ -12,34 +12,51 @@
 //$body-bg: #d3e9eb;
 //$body-color: #151417;
 
+
+
+
 // Theme colors
-$c-theme-blue: #14558f;
-$c-theme-green: #43956f;
-$c-theme-gray: #535353;
-$c-theme-yellow: #f6c51b;
-$c-red: #cd0d0d;
-$c-white: white;
-$c-black: #141414;
-$c-gray-f2f2f2: #f2f2f2;
-$c-gray-dcdcdc: #dcdcdc;
-$c-gray-a6a6a6: #a6a6a6;
-$c-gray-707070: #707070;
-$c-gray-757575: #757575;
+$color-green:        #43956f;
+$color-blue:         #0D47A1;
+$color-yellow:       #f6c51b;
+$color-purple:       #4A148C;
+$color-orange:       #EE7752;
+$color-pink:         #FF0066;
+$color-blue-light:   #23A6D5;
+
+$color-gray-darker:          #263238;
+$color-gray-dark:            #455A64;
+$color-gray:            	   #607D8B;
+$color-gray-light:           #B0BEC5;
+$color-gray-lighter:    	   #CFD8DC;
+
+$color-white:                #ffffff;
+$color-black:                #000000;
+
+$color-white-alt:        rgba($color-white,0.9);
+$color-green-alt:        rgba(#43956f,0.5);
+$color-blue-alt:         rgba(#14558f,0.5);
+$color-yellow-alt:       rgba(#f6c51b,0.5);
 // Changing the theme colors
-$primary: $c-black;
-$secondary: $c-theme-blue;
-$success: $c-theme-green;
-$info: #535353;
-$warning: $c-theme-yellow;
-$danger: $c-red;
-$light: $c-gray-f2f2f2;
-$dark: $c-black;
+$primary: $color-pink;
+$secondary: $color-purple;
+$info: $color-blue-light;
+$warning: $color-yellow;
+$danger: $color-pink;
+$light: $color-gray-lighter;
+$dark: $color-black;
 
 // Changing the variables relating to buttons
-// $border-radius: 0;
-// $border-width: 3px;
-// $btn-font-weight: 700;
-// $btn-box-shadow: 0 0.25rem 0.5rem rgba($dark, 0.25);
+$box-shadow: 0 0 2em 0 rgba($color-gray-dark,1);
+$border-radius: 0;
+$border-width: 1px;
+$btn-font-weight: 700;
+$btn-box-shadow: 0 0.25rem 0.5rem rgba($dark, 0.25);
+$success: $color-green;
+
+
+$font-family-sans-serif:      "Texta", "Helvetica", "Arial", "sans-serif";
+$font-family-base:            $font-family-sans-serif;
 
 // Adding (!) an additional theme color (ex. classes btn-cool, bg-cool)
 //$theme-colors: (
