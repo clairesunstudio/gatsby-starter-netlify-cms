@@ -2,12 +2,14 @@ import { render } from 'react-dom'
 import React, { useState, useEffect } from 'react'
 import { useTransition, a } from 'react-spring'
 import shuffle from 'lodash/shuffle'
+import { Button } from 'react-bootstrap'
 import useMeasure from './useMeasure'
 import useMedia from './useMedia'
 import { Link, graphql, StaticQuery } from 'gatsby'
 import ProjectCard, { cardWidth, cardPadding } from '../ProjectCard'
 // import data from './data'
 import './index.scss'
+
 
 const Masonry = ({ data }) => {
   const { edges: posts } = data.allMarkdownRemark
@@ -41,6 +43,12 @@ const Masonry = ({ data }) => {
     return { ...item, xy, width: columnWidth, height: rowHeight  }
   })
 
+  const FilterList = distinctTags.map((tag,i) => {
+    if (tag) {
+      return <Button bsStyle="tab" value={tag} key={i}>{tag}</Button>
+    }
+  })
+
   // Hook5: Turn the static grid values into animated transitions, any addition, removal or change will be animated
   const transitions = useTransition(gridItems, item => item.id, {
     from: ({ xy, width, height }) => ({ xy, width, height, opacity: 0 }),
@@ -52,6 +60,8 @@ const Masonry = ({ data }) => {
   })
   // Render the grid
   return (
+    <React.Fragment>
+    {FilterList}
     <div {...bind} class="masonry" style={{ height: Math.max(...heights) }}>
       {transitions.map(({ item, props: { xy, ...rest }, key }) => {
         return(<a.div key={key} style={{ transform: xy.interpolate((x, y) => `translate3d(${x}px,${y}px,0)`), ...rest }}>
@@ -60,6 +70,7 @@ const Masonry = ({ data }) => {
         </a.div>)
       })}
     </div>
+    </React.Fragment>
   )
 }
 
