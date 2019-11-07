@@ -2,7 +2,7 @@ import { render } from 'react-dom'
 import React, { useState, useEffect } from 'react'
 import { useTransition, a } from 'react-spring'
 import shuffle from 'lodash/shuffle'
-import { Button } from 'react-bootstrap'
+import { Button, Container } from 'react-bootstrap'
 import useMeasure from './useMeasure'
 import useMedia from './useMedia'
 import { Link, graphql, StaticQuery } from 'gatsby'
@@ -11,14 +11,8 @@ import ProjectCard, { cardWidth, cardPadding } from '../ProjectCard'
 import './index.scss'
 
 
-const Masonry = ({ data }) => {
+const Masonry = ({ data, tags }) => {
   const { edges: posts } = data.allMarkdownRemark
-  let allTags = [];
-  const tags = posts.forEach((post) => {
-    allTags = allTags.concat(post.node.frontmatter.tags)
-  })
-  const distinctTags = [...new Set(allTags)]
-  console.log(distinctTags)
   // Hook1: Tie media queries to the number of columns
   const columns = useMedia([
     `(min-width: ${(cardWidth + cardPadding * 2) * 5}px)`,
@@ -43,9 +37,9 @@ const Masonry = ({ data }) => {
     return { ...item, xy, width: columnWidth, height: rowHeight  }
   })
 
-  const FilterList = distinctTags.map((tag,i) => {
+  const FilterList = tags.map((tag,i) => {
     if (tag) {
-      return <Button bsStyle="tab" value={tag} key={i}>{tag}</Button>
+      return <Button bsStyle="tab" value={tag.fieldValue} key={i}>{tag.fieldValue}</Button>
     }
   })
 
@@ -61,7 +55,9 @@ const Masonry = ({ data }) => {
   // Render the grid
   return (
     <React.Fragment>
-    {FilterList}
+    <Container>
+      {FilterList}
+    </Container>
     <div {...bind} class="masonry" style={{ height: Math.max(...heights) }}>
       {transitions.map(({ item, props: { xy, ...rest }, key }) => {
         return(<a.div key={key} style={{ transform: xy.interpolate((x, y) => `translate3d(${x}px,${y}px,0)`), ...rest }}>
@@ -74,7 +70,7 @@ const Masonry = ({ data }) => {
   )
 }
 
-export default () => (
+export default ({ tags }) => (
   <StaticQuery
     query={graphql`
       query ProjectRollQuery {
@@ -108,6 +104,6 @@ export default () => (
         }
       }
     `}
-    render={(data, count) => <Masonry data={data} />}
+    render={(data, count) => <Masonry data={data} tags={tags}/>}
   />
 )
