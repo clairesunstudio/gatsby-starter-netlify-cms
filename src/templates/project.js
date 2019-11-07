@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { kebabCase } from 'lodash'
 import Helmet from 'react-helmet'
 import { graphql, Link } from 'gatsby'
+import { Button,  ButtonGroup } from 'react-bootstrap'
 import Layout from '../components/Layout'
 import ProjectHeader from '../components/ProjectHeader'
 import Content, { HTMLContent } from '../components/Content'
@@ -38,6 +39,11 @@ export const ProjectTemplate = ({
                 </ul>
               </div>
             ) : null}
+            <ButtonGroup size="lg">
+              <Button>Previous</Button>
+              <Button>All</Button>
+              <Button>Next</Button>
+            </ButtonGroup>
           </div>
     </section>
   )
