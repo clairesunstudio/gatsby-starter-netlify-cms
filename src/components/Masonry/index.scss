@@ -4,11 +4,19 @@
   height: 100%;
   max-width: 1950px;
   text-align: center;
-  margin: auto; 
+  margin: auto;
 
   & > div {
     position: absolute;
     will-change: transform, width, height, opacity;
     padding: 15px;
+  }
+}
+
+
+.filter-button {
+  margin: 0.25rem 0;
+  & + & {
+    margin-left: 0.5rem;
   }
 }
