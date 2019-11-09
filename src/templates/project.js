@@ -3,10 +3,11 @@ import PropTypes from 'prop-types'
 import { kebabCase } from 'lodash'
 import Helmet from 'react-helmet'
 import { graphql, Link } from 'gatsby'
-import { Button,  ButtonGroup } from 'react-bootstrap'
+import { Row, Col } from 'react-bootstrap'
 import Layout from '../components/Layout'
 import ProjectHeader from '../components/ProjectHeader'
 import Content, { HTMLContent } from '../components/Content'
+import './project.scss';
 
 export const ProjectTemplate = ({
   content,
@@ -15,6 +16,7 @@ export const ProjectTemplate = ({
   tags,
   title,
   helmet,
+  pager
 }) => {
   const PostContent = contentComponent || Content
   const projectHeaderProps = {
@@ -39,11 +41,13 @@ export const ProjectTemplate = ({
                 </ul>
               </div>
             ) : null}
-            <ButtonGroup size="lg">
-              <Button>Previous</Button>
-              <Button>All</Button>
-              <Button>Next</Button>
-            </ButtonGroup>
+            <Row class="pagers">
+              <Col>
+              <Link to={pager.previous.fields.slug}>{'< '}{pager.previous.frontmatter.title}</Link>
+              </Col>
+              <Col><Link >All</Link></Col>
+              <Col><Link to={pager.next.fields.slug}>{pager.next.frontmatter.title}{' >'}</Link></Col>
+            </Row>
           </div>
     </section>
   )
@@ -57,26 +61,26 @@ ProjectTemplate.propTypes = {
   helmet: PropTypes.object,
 }
 
-const Project = ({ data }) => {
-  const { markdownRemark: post } = data
-
+const Project = ({ data: { project, pagers } }) => {
+  const pager = pagers.edges.find((pager) => pager.node.id === project.id);
   return (
     <Layout>
       <ProjectTemplate
-        content={post.html}
+        content={project.html}
         contentComponent={HTMLContent}
-        description={post.frontmatter.description}
+        description={project.frontmatter.description}
         helmet={
           <Helmet titleTemplate="%s | Blog">
-            <title>{`${post.frontmatter.title}`}</title>
+            <title>{`${project.frontmatter.title}`}</title>
             <meta
               name="description"
-              content={`${post.frontmatter.description}`}
+              content={`${project.frontmatter.description}`}
             />
           </Helmet>
         }
-        tags={post.frontmatter.tags}
-        title={post.frontmatter.title}
+        tags={project.frontmatter.tags}
+        title={project.frontmatter.title}
+        pager={pager}
       />
     </Layout>
   )
@@ -92,7 +96,7 @@ export default Project
 
 export const pageQuery = graphql`
   query ProjectByID($id: String!) {
-    markdownRemark(id: { eq: $id }) {
+    project: markdownRemark(id: { eq: $id }) {
       id
       html
       frontmatter {
@@ -100,6 +104,29 @@ export const pageQuery = graphql`
         title
         description
         tags
+      }
+    }
+    pagers: allMarkdownRemark {
+      edges {
+        node {
+          id
+        }
+        next {
+          frontmatter {
+            title
+          }
+          fields {
+            slug
+          }
+        }
+        previous {
+          frontmatter {
+            title
+          }
+          fields {
+            slug
+          }
+        }
       }
     }
   }
