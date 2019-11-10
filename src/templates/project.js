@@ -15,8 +15,7 @@ export const ProjectTemplate = ({
   description,
   tags,
   title,
-  helmet,
-  pager
+  helmet
 }) => {
   const PostContent = contentComponent || Content
   const projectHeaderProps = {
@@ -41,13 +40,6 @@ export const ProjectTemplate = ({
                 </ul>
               </div>
             ) : null}
-            <Row class="pagers">
-              <Col>
-              <Link to={pager.previous.fields.slug}>{'< '}{pager.previous.frontmatter.title}</Link>
-              </Col>
-              <Col><Link >All</Link></Col>
-              <Col><Link to={pager.next.fields.slug}>{pager.next.frontmatter.title}{' >'}</Link></Col>
-            </Row>
           </div>
     </section>
   )
@@ -80,8 +72,18 @@ const Project = ({ data: { project, pagers } }) => {
         }
         tags={project.frontmatter.tags}
         title={project.frontmatter.title}
-        pager={pager}
       />
+      <section className="section">
+        <div className="container content">
+        <Row class="pagers">
+          <Col>
+          <Link to={pager.previous.fields.slug}>{'< '}{pager.previous.frontmatter.title}</Link>
+          </Col>
+          <Col><Link >All</Link></Col>
+          <Col><Link to={pager.next.fields.slug}>{pager.next.frontmatter.title}{' >'}</Link></Col>
+        </Row>
+        </div>
+      </section>
     </Layout>
   )
 }
