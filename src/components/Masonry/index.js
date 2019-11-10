@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { useTransition, a } from 'react-spring'
 import shuffle from 'lodash/shuffle'
 import { Button, Container } from 'react-bootstrap'
+import classNames from 'classnames'
 import useMeasure from './useMeasure'
 import useMedia from './useMedia'
 import { Link, graphql, StaticQuery } from 'gatsby'
@@ -25,6 +26,11 @@ const Masonry = ({ data, tags }) => {
   const [bind, { width }] = useMeasure()
   // Hook3: Hold items
   const [items, setItems] = useState(projects)
+  const [filter, setFilter] = useState('all')
+  const filterButtonClasses = (value) => classNames({
+    'filter-button': true ,
+    'active': filter === value
+  });
   // Hook4: shuffle data every 2 seconds
   // useEffect(() => void setInterval(() => set(shuffle), 2000), [])
   // Form a grid of stacked items using width & columns we got from hooks 1 & 2
@@ -39,18 +45,20 @@ const Masonry = ({ data, tags }) => {
 
   const FilterList = tags.map((tag,i) => {
     if (tag) {
+      const value = tag.fieldValue;
       return (
         <Button
           variant="outline-primary"
-          className="filter-button"
-          value={tag.fieldValue}
+          className={filterButtonClasses(value)}
+          value={value}
           key={i}
           onClick={() => {
               const filterdItems = projects.filter((project) => {
                 const { tags } = project.node.frontmatter;
-                return tags && tags.includes(tag.fieldValue)
+                return tags && tags.includes(value)
               })
               setItems(filterdItems);
+              setFilter(value)
             }
           }
         >
@@ -75,9 +83,13 @@ const Masonry = ({ data, tags }) => {
     <Container>
       <Button
         variant="outline-primary"
-        className="filter-button"
+        className={filterButtonClasses('all')}
         value={'all'}
-        onClick={() => setItems(projects)}
+        onClick={() => {
+          setItems(projects)
+          setFilter('all')
+          }
+        }
       >
         All
       </Button>
