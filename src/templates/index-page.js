@@ -7,9 +7,9 @@ import Features from '../components/Features'
 import Masonry from '../components/Masonry'
 import Divider from '../components/Divider'
 
-export const IndexPageTemplate = ({ group: tags }) => (
+export const IndexPageTemplate = ({ group: tags, filterPath }) => (
   <Fragment>
-    <Masonry tags={tags} />
+    <Masonry tags={tags} filterPath={filterPath} />
   </Fragment>
 )
 
@@ -18,12 +18,12 @@ IndexPageTemplate.propTypes = {
   description: PropTypes.string,
 }
 
-const IndexPage = ({ data }) => {
-  const { tags } = data
-
+const IndexPage = ({ data, location }) => {
+  const { tags } = data;
+  const { search } = location;
   return (
     <Layout>
-      <IndexPageTemplate {...tags} />
+      <IndexPageTemplate {...tags} filterPath={search} />
     </Layout>
   )
 }
