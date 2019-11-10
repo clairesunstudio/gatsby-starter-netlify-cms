@@ -31,9 +31,7 @@ const Masonry = ({ data, tags, filterPath }) => {
     'filter-button': true ,
     'active': filter === value
   });
-console.log(tags)
   const setItemsByTag = (tag) => {
-    console.log(tag)
     const filterdItems = projects.filter((project) => {
       const { tags } = project.node.frontmatter;
       return tags && tags.includes(tag)
@@ -45,11 +43,11 @@ console.log(tags)
     const regexp = /\?tag=(.*)/;
     const hasTag = filterPath.match(regexp);
     const tag = hasTag && hasTag[1];
-    const isTagValid = tags.includes(tag);
+    const isTagValid = tags.find((item) => item.fieldValue === tag)
     if (isTagValid) {
       setItemsByTag(tag)
     }
-  }, [filterPath])
+  }, [])
   // Hook4: shuffle data every 2 seconds
   // useEffect(() => void setInterval(() => set(shuffle), 2000), [])
   // Form a grid of stacked items using width & columns we got from hooks 1 & 2
