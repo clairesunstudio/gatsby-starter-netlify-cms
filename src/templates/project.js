@@ -5,6 +5,7 @@ import Helmet from 'react-helmet'
 import { graphql, Link } from 'gatsby'
 import { Row, Col } from 'react-bootstrap'
 import Layout from '../components/Layout'
+import Pager from '../components/Pager'
 import ProjectHeader from '../components/ProjectHeader'
 import Content, { HTMLContent } from '../components/Content'
 import './project.scss';
@@ -60,6 +61,16 @@ ProjectTemplate.propTypes = {
 
 const Project = ({ data: { project, pagers } }) => {
   const pager = pagers.edges.find((pager) => pager.node.id === project.id);
+  const pagerProps = {
+    left: {
+      slug: pager.previous.fields.slug,
+      title: pager.previous.frontmatter.title
+    },
+    right: {
+      slug: pager.next.fields.slug,
+      title: pager.next.frontmatter.title
+    }
+  }
   return (
     <Layout>
       <ProjectTemplate
@@ -79,15 +90,9 @@ const Project = ({ data: { project, pagers } }) => {
         title={project.frontmatter.title}
       />
       <section className="section">
-        <div className="container">
-        <Row className="pagers">
-          <Col>
-          <Link to={pager.previous.fields.slug}>{'< '}<i class="oi oi-account-login"></i>{pager.previous.frontmatter.title}</Link>
-          </Col>
-          <Col><Link >All</Link></Col>
-          <Col><Link to={pager.next.fields.slug}>{pager.next.frontmatter.title}{' >'}</Link></Col>
-        </Row>
-        </div>
+        {
+          <Pager {...pagerProps} />
+        }
       </section>
     </Layout>
   )

@@ -1,0 +1,22 @@
+@import 'variables';
+
+.pagers {
+  padding: 1rem 0;
+  border-top: 1px solid $color-gray-light;
+  border-bottom: 1px solid $color-gray-light;
+
+  .col {
+    padding: 0;
+    text-align: center;
+    flex-basis: 1;
+
+    &:first-child {
+      text-align: left;
+      flex-basis: 2;
+    }
+    &:last-child {
+      text-align: right;
+      flex-basis: 2;
+    }
+  }
+}
