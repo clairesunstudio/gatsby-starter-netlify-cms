@@ -1,9 +1,9 @@
 ---
 templateKey: project
-title: Digital Consulting on Workforce Connect
+title: Workforce Connect Dashboard
 image: /img/workforce.jpg
 date: 2019-06-02T22:42:51.326Z
-description: Digital Consulting and organize design workshops on Workforce Connect Dashboard
+description: Digital Consulting efforts on helping MassHire to create a single sign-on to all workforce related state services
 url: https://www.mass.gov/rideshare
 tags:
   - Data Viz

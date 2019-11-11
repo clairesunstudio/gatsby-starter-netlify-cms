@@ -90,19 +90,21 @@ const Masonry = ({ data, tags, filterPath }) => {
   return (
     <React.Fragment>
     <Container>
-      <Button
-        variant="outline-primary"
-        className={filterButtonClasses('all')}
-        value={'all'}
-        onClick={() => {
-          setItems(projects)
-          setFilter('all')
+      <div className="filters">
+        <Button
+          variant="outline-primary"
+          className={filterButtonClasses('all')}
+          value={'all'}
+          onClick={() => {
+            setItems(projects)
+            setFilter('all')
+            }
           }
-        }
-      >
-        All
-      </Button>
-      {FilterList}
+        >
+          All
+        </Button>
+        {FilterList}
+      </div>
     </Container>
     <div {...bind} class="masonry" style={{ height: Math.max(...heights) }}>
       {transitions.map(({ item, props: { xy, ...rest }, key }) => {
