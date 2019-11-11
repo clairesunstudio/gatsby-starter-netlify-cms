@@ -34,7 +34,7 @@ export const ProjectTemplate = ({
                 <ul className="taglist">
                   {tags.map(tag => (
                     <li key={tag + `tag`}>
-                      <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+                      <Link to={`?tag=${kebabCase(tag)}`}>{tag}</Link>
                     </li>
                   ))}
                 </ul>
@@ -74,8 +74,8 @@ const Project = ({ data: { project, pagers } }) => {
         title={project.frontmatter.title}
       />
       <section className="section">
-        <div className="container content">
-        <Row class="pagers">
+        <div className="container">
+        <Row className="pagers">
           <Col>
           <Link to={pager.previous.fields.slug}>{'< '}{pager.previous.frontmatter.title}</Link>
           </Col>
