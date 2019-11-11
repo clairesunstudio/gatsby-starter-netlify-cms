@@ -41,10 +41,9 @@ const Masonry = ({ data, tags, filterPath }) => {
   }
   useEffect(() => {
     const regexp = /\?tag=(.*)/;
-    const hasTag = filterPath.match(regexp);
+    const hasTag = decodeURIComponent(filterPath).match(regexp);
     const tag = hasTag && hasTag[1];
     const isTagValid = tags.find((item) => item.fieldValue === tag)
-    console.log(tags, tag)
     if (isTagValid) {
       setItemsByTag(tag)
     }

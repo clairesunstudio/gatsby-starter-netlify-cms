@@ -36,7 +36,7 @@ export const ProjectTemplate = ({
                     <li key={tag + `tag`}>
                       <Link
                         className="filter-button btn btn-outline-primary"
-                        to={`?tag=${kebabCase(tag)}`}
+                        to={`?tag=${encodeURIComponent(tag)}`}
                       >
                         {tag}
                       </Link>
