@@ -3,6 +3,7 @@ templateKey: project
 title: Chapter55
 date: 2016-12-17T15:04:10.000Z
 description: An interactive data story on Massachusetts opioid epidemic.
+url: https://mass.gov/chapter55
 tags:
   - flavor
   - tasting

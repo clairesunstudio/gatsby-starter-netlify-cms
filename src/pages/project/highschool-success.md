@@ -9,12 +9,17 @@ tags:
   - API
   - design
   - development
+url: https://massds.gitbook.io/mayflower/
+tags:
+  - Data Viz
+  - Design
+  - Dev
 ---
 ## Overview
 
 Google announced that they were sunseting its site search product (GSS) at the end of March 2017, which Mass.gov Drupal site was relying on for its internal site search. In 3 months, we must come up with a solution to ensure that over 300k daily searches on Mass.gov were not disrupted, in addition, aimed to address the requests from all stakeholders within the Mass.gov customer organizations, and to improve the constituents experience to quickly and easily find the content they are looking for.
 
-## 
+##
 
 ![search home page](/img/search.jpg)
 

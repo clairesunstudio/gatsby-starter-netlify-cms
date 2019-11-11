@@ -44,7 +44,9 @@ class SiteHeader extends React.Component {
   render(){
     const {fixedTop, brandName, connect} = this.state
     const socialIconStyle ={
-      width:30,height:30, margin:3
+      width:30,
+      height:30,
+      margin:3
     }
     const socialIconColor = "#263238"
     return(

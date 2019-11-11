@@ -1,20 +1,21 @@
 ---
 templateKey: project
-title: Search Mass.gov
+title: PFML and UI Benefits Calculators
 image: /img/search.jpg
 date: 2019-06-02T22:42:51.326Z
-description: The search application powering Mass.gov
+description: Design and build calculators for PFML and Unemployment
+url: https://search.mass.gov
 tags:
   - React APP
-  - API
   - design
   - development
+  - UX
 ---
 ## Overview
 
 Google announced that they were sunseting its site search product (GSS) at the end of March 2017, which Mass.gov Drupal site was relying on for its internal site search. In 3 months, we must come up with a solution to ensure that over 300k daily searches on Mass.gov were not disrupted, in addition, aimed to address the requests from all stakeholders within the Mass.gov customer organizations, and to improve the constituents experience to quickly and easily find the content they are looking for.
 
-## 
+##
 
 ![search home page](/img/search.jpg)
 
