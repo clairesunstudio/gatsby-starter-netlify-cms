@@ -1,28 +1,21 @@
 ---
 templateKey: project
-title: Search Mass.gov
-image: /img/search.jpg
+title: The 'ABC' of High School Success
+image: /img/dese.jpg
 date: 2019-06-02T22:42:51.326Z
-description: The search application powering Mass.gov
+description: An interactive data story on high school success indicators designed and built for Massachusetts Department of Education and Secondary Education
+url: https://massds.gitbook.io/mayflower/
 tags:
   - React APP
   - API
   - design
   - development
-url: https://massds.gitbook.io/mayflower/
-tags:
-  - Data Viz
-  - Design
-  - Dev
+
 ---
 ## Overview
 
-Google announced that they were sunseting its site search product (GSS) at the end of March 2017, which Mass.gov Drupal site was relying on for its internal site search. In 3 months, we must come up with a solution to ensure that over 300k daily searches on Mass.gov were not disrupted, in addition, aimed to address the requests from all stakeholders within the Mass.gov customer organizations, and to improve the constituents experience to quickly and easily find the content they are looking for.
+This data story provides information for parents, community members, and educators from the Massachusetts Department of Elementary and Secondary Education (ESE) on how attendance, behavior, and course performance in Massachusetts high schools affects post-secondary outcomes. ESE has data programs to collect student and school data and create analytics, but not all of them are easily consumerable by the public. This data story aims to convert their findings into narrative report to make the high school cohort data more accessible and impactful to students, parents and educators.
 
-##
+## My Roles
 
-![search home page](/img/search.jpg)
-
-My Roles
-
-I worked both as an architect, a developer and the sole designer on the team, first gathering the requirements and coming up with a design to meet all the business and technical requirements. In the first couple of weeks, I prototyped the search application using React and Redux with Google Custom Search API (CSE) based on the design and initiated the front-end solution that was decoupled from Drupal using React and pointed the direction of building a React component library in storybook for the Mayflower Design System to speed up the development process. From the initial research and design, prototype to development, vendor team management, to conducting user testing and sythesizing feedback for iterations to the final release, I played an integral part in the entire product cycle.
+I worked closely with the Department of Education and Secondary Education on developing this interactive data story to highlight the impact of the ABCs by following a group of students from the time they entered 9th grade, to when each left or completed high school. In this project, my work includes storyboading with exisiting data, data visualization design, prototyping, website development and deployment and user testing. The site was built using React with a highly componentized front end and a light weight page load.

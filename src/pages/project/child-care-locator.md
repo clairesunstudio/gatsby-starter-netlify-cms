@@ -1,9 +1,9 @@
 ---
 templateKey: project
-title: The 'ABC' of High School Success
+title: Child Care Program Search
 image: /img/childcare.jpg
 date: 2019-04-30T04:26:43.334Z
-description: An interactive data story on high school success indicators designed and built for Massachusetts Department of Education and Secondary Education
+description: A Geolocation search for the Massachusetts Child Care Programs
 tags:
   - Data Viz
   - Design
