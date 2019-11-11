@@ -1,5 +1,5 @@
 import React from 'react'
-import './TagPill.css'
+import './TagPill.scss'
 
 const TagPill = () => {
   const code = ['HTML', 'CSS', 'SASS', 'JS', 'Jquery', 'SQL', 'React.JS', 'Node.JS', 'D3.JS', 'P5.JS', 'Arduino', 'Processing', 'GTM', 'Drupal', 'Twig', 'Git', 'Regex', 'R', 'ggplot2', 'Python', 'Pandas', 'AWS'];
