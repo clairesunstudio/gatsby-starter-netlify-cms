@@ -3,6 +3,15 @@ templateKey: 'about-page'
 path: /about
 title: About Me
 image: /img/profile-pic.jpg
+name: Minghua Sun
+job: Creative Technologist, UX Engineer
+blurb: I wear many hats in various projects — conducting user research, translating requirements into wireframes, writing and reviewing code, creating data visualizations and venturing into data analytics. I&apos;m the Product Owner of the Commonwealth Design System and I sometimes PM technical projects.
+info:
+  - {icon: "/img/phone.svg", href: "tel:6178341062", text: "+1 (617) 834-1062"}
+  - {icon: "/img/location.svg", text: "Boston, MA"}
+  - {icon: "/img/website.svg", href: "https://clairesunstudio.com", text: "clairesunstudio.com"}
+  - {icon: "/img/email.svg", href: "mailto:clairesunstudio@gmail.com", text: "clairesunstudio@gmail.com"}
+  - {icon: "/img/github.svg", href: "https://github.com/clairesunstudio", text: "@clairesunstudio"}
 ---
 ### Shade-grown coffee
 Coffee is a small tree or shrub that grows in the forest understory in its wild form, and traditionally was grown commercially under other trees that provided shade. The forest-like structure of shade coffee farms provides habitat for a great number of migratory and resident species.

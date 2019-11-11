@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 import Divider from '../components/Divider'
-import { Container, Col, Button } from 'react-bootstrap'
+import { Container, Row, Col, Button } from 'react-bootstrap'
 import './About.scss'
 import SkillCloud from '../components/resume/SkillCloud'
 import SectionHeader from '../components/resume/SectionHeader'
@@ -14,29 +14,34 @@ import { Timeline, TimelineEvent } from '../components/resume/Timeline'
 import Icon from '../components/resume/Icon'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 
-export const AboutPageTemplate = ({ title, content, contentComponent, image }) => {
+export const AboutPageTemplate = ({ title, content, contentComponent, image, name, job, blurb, info }) => {
   const PageContent = contentComponent || Content
-
   return (
     <Fragment>
       <Divider />
       <Container>
-        <Col className="about">
+        <Row>
+        <Col>
           <div className="about-row">
             <div className="about-section">
               <PreviewCompatibleImage imageInfo={image} className="profile_pic" />
-              <h2>Minghua Sun</h2>
-              <h4>Creative Technologist, UX Engineer</h4>
-              <p>I wear many hats in various projects — conducting user research, translating requirements into wireframes, writing and reviewing code, creating data visualizations and venturing into data analytics. I&apos;m the Product Owner of the Commonwealth Design System and I sometimes PM technical projects.</p>
+              <h2>{name}</h2>
+              <h4>{job}</h4>
+              <p>{blurb}</p>
               <Button bsStyle='tab' onClick={() => window.print()} download="Minghua's Resume">Print Resume</Button>
             </div>
             <div className="about-section">
               <ul className="info_list">
-              <li><Icon name='phone'/><a href="tel:6178341062"> <span>+1 (617) 834-1062</span></a></li>
-              <li><Icon name='location'/> Boston, MA</li>
-              <li><Icon name='website'/><a href="https://clairesunstudio.com"> <span>clairesunstudio.com</span></a></li>
-              <li><Icon name='email'/><a href="mailto:clairesunstudio@gmail.com"> <span>clairesunstudio@gmail.com</span></a></li>
-              <li><Icon name='github'/><a href="https://github.com/clairesunstudio"> <span>@clairesunstudio</span></a></li>
+              {
+                info.map((item, index) => (
+                  <li>
+                    <PreviewCompatibleImage imageInfo={item.icon} />
+                    {
+                      item.href ? (<a href={item.href}> <span>{item.text}</span></a>) : (<span> {item.text}</span>)
+                    }
+                  </li>
+                ))
+              }
               </ul>
             </div>
           </div>
@@ -156,6 +161,7 @@ export const AboutPageTemplate = ({ title, content, contentComponent, image }) =
           </TimelineEvent>
         </Timeline>
         </Col>
+        </Row>
       </Container>
     </Fragment>
   )
@@ -169,14 +175,14 @@ AboutPageTemplate.propTypes = {
 
 const AboutPage = ({ data }) => {
   const { markdownRemark: post } = data
-
+  const { title, ...rest } = post.frontmatter;
   return (
     <Layout>
       <AboutPageTemplate
         contentComponent={HTMLContent}
         title={post.frontmatter.title}
         content={post.html}
-        image={post.frontmatter.image}
+        { ...rest }
       />
     </Layout>
   )
@@ -194,12 +200,28 @@ export const aboutPageQuery = graphql`
       html
       frontmatter {
         title
+        name
+        job
+        blurb
         image {
           childImageSharp {
             fluid(maxWidth: 240, quality: 64) {
               ...GatsbyImageSharpFluid
             }
           }
+        }
+        info {
+          icon {
+            childImageSharp {
+              fluid(maxWidth: 240, quality: 64) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+            extension
+            publicURL
+          }
+          href
+          text
         }
       }
     }

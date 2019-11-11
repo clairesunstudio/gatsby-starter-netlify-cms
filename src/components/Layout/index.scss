@@ -1,6 +1,8 @@
-@import '../styles/bootstrap';
-@import '../styles/normalize';
-@import '../styles/variables';
+@import 'bootstrap';
+@import 'normalize';
+@import 'variables';
+@import 'custom-variables';
+@import '~bootstrap/scss/bootstrap';
 
 h1,h2,h3,h4,h5,h6,p,button,input,li,span,address,div {
   font-family: $font-sans;
@@ -65,4 +67,11 @@ html, body, #root{
           }
         }
       }
+
+    &.active {
+      background: $color-black;
+      span {
+        color: $color-white;
+      }
+    }
     }

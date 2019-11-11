@@ -24,12 +24,12 @@
     transform: translate(-50%, -50%);
     margin: 0;
     font-weight: $font-bold;
-    font-size: $lead-font-size;
+    font-size: $small-font-size;
     &.sm{
-      font-size: $small-font-size;
+      font-size: 0.5rem;
     }
     &.md{
-      font-size: $base-font-size;
+      font-size: 1.3rem;
     }
   }
 }

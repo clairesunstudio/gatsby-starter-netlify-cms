@@ -44,6 +44,7 @@ const Masonry = ({ data, tags, filterPath }) => {
     const hasTag = filterPath.match(regexp);
     const tag = hasTag && hasTag[1];
     const isTagValid = tags.find((item) => item.fieldValue === tag)
+    console.log(tags, tag)
     if (isTagValid) {
       setItemsByTag(tag)
     }
