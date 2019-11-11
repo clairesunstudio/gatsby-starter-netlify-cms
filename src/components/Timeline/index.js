@@ -1,5 +1,5 @@
 import React from 'react'
-import './Timeline.scss'
+import './index.scss'
 
 export const TimelineEvent = ({title, sub, url, project, date, children}) => {
   const formatDate = (date) => {

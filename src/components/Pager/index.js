@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { Col, Row, Container } from 'react-bootstrap'
-import Icon from '../resume/Icon'
+import Icon from '../Icon'
 
 import './index.scss'
 

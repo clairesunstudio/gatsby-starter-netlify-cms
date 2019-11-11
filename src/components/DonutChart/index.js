@@ -7,7 +7,7 @@ import {
   ResponsiveContainer,
   Cell,Text
 } from "recharts";
-import './DonutChart.scss'
+import './index.scss'
 
 const DonutChart = ({children}) => {
   const color = ["#23A6D5", "#CFD8DC"]

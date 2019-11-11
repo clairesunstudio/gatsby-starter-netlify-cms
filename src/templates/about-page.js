@@ -6,12 +6,12 @@ import Content, { HTMLContent } from '../components/Content'
 import Divider from '../components/Divider'
 import { Container, Row, Col, Button } from 'react-bootstrap'
 import './About.scss'
-import SkillCloud from '../components/resume/SkillCloud'
-import SectionHeader from '../components/resume/SectionHeader'
-import DonutChart from '../components/resume/DonutChart'
-import TagPill from '../components/resume/TagPill'
-import { Timeline, TimelineEvent } from '../components/resume/Timeline'
-import Icon from '../components/resume/Icon'
+import WordCloud from '../components/WordCloud'
+import SectionHeader from '../components/SectionHeader'
+import DonutChart from '../components/DonutChart'
+import TagPill from '../components/Pill'
+import { Timeline, TimelineEvent } from '../components/Timeline'
+import Icon from '../components/Icon'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 
 export const AboutPageTemplate = ({ title, content, contentComponent, image, name, job, blurb, info }) => {
@@ -50,8 +50,8 @@ export const AboutPageTemplate = ({ title, content, contentComponent, image, nam
             <DonutChart/>
           </div>
           <div className="about-section">
-            <SectionHeader>SkillCloud</SectionHeader>
-            <SkillCloud/>
+            <SectionHeader>WordCloud</SectionHeader>
+            <WordCloud/>
           </div>
           <div className="about-section">
             <SectionHeader>languages</SectionHeader>
