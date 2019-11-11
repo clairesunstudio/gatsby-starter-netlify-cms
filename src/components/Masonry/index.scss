@@ -13,10 +13,13 @@
   }
 }
 
+.filters {
+  margin-top: 1rem;
+}
 
 .filter-button {
   margin: 0.25rem 0;
-  & + & {
-    margin-left: 0.5rem;
+  &:not(:last-child) {
+    margin-right: 0.5rem;
   }
 }
