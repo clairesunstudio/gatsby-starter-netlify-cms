@@ -64,9 +64,9 @@ html, body, #root{
       }
 
     &.active {
-      background: $c-black;
+      background: $color-black;
       span {
-        color: $c-white;
+        color: $color-white;
       }
     }
     }
