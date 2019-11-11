@@ -5,7 +5,6 @@
   border-top: 1px solid $color-gray-light;
   border-bottom: 1px solid $color-gray-light;
 
-
   .col {
     text-align: center;
 
@@ -15,5 +14,19 @@
     &:last-child {
       text-align: right;
     }
+  }
+}
+
+
+.taglist {
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: inline-block;
+  }
+
+  li + li {
+    margin-left: 0.5rem;
   }
 }
