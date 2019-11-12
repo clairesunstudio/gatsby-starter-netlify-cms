@@ -9,7 +9,7 @@ const Header = ({title,subtitle, live_site}) => (
           <Col md={8}>
             <h1>{title}</h1>
             <hr />
-            <h3>{subtitle}</h3>
+            <p>{subtitle}</p>
             {
               (live_site != "") && (
                 <Button className="btn-project" href={live_site}>Visit Live Site</Button>

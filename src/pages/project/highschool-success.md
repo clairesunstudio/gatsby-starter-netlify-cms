@@ -3,8 +3,8 @@ templateKey: project
 title: The 'ABC' of High School Success
 image: /img/dese.jpg
 date: 2019-06-02T22:42:51.326Z
-description: An interactive data story on high school success indicators designed and built for Massachusetts Department of Education and Secondary Education
-url: https://massds.gitbook.io/mayflower/
+description: An interactive data story on high school success indicators
+url: https://mass.gov/successabcs
 tags:
   - React APP
   - API
