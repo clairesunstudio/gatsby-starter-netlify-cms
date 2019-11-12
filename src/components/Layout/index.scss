@@ -38,6 +38,10 @@ html, body, #root{
   .container {
     padding: 0;
     width: 100%;
+    
+    @media (max-width: 767px) {
+      padding: 0 1rem;
+    }
   }
 
   a {

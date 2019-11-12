@@ -5,17 +5,23 @@ import Icon from '../Icon'
 
 import './index.scss'
 
+const chevronSize = {
+  svgWidth: 12,
+  svgHeight: 20
+}
+
 const svgSize = {
   svgWidth: 20,
   svgHeight: 20
 }
+
 const Pager = ({ left, right }) => {
   return (
     <Container>
       <Row className="pagers">
         <Col>
           <Link to={left.slug}>
-            <Icon name='chevron-left' {...svgSize} />
+            <Icon name='chevron-left' {...chevronSize} />
             {left.title}
           </Link>
         </Col>
@@ -27,7 +33,7 @@ const Pager = ({ left, right }) => {
         <Col>
           <Link to={right.slug}>
             {right.title}
-            <Icon name='chevron-right' {...svgSize}/>
+            <Icon name='chevron-right' {...chevronSize}/>
           </Link>
         </Col>
       </Row>
