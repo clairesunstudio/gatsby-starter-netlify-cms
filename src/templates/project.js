@@ -19,6 +19,7 @@ export const ProjectTemplate = ({
   helmet
 }) => {
   const PostContent = contentComponent || Content
+  console.log(content)
   const projectHeaderProps = {
     title,
     subtitle: description
@@ -28,7 +29,7 @@ export const ProjectTemplate = ({
       {helmet || ''}
       <ProjectHeader {...projectHeaderProps}/>
       <div className="container content">
-            <PostContent content={content} />
+            <PostContent content={content} className="richtext"/>
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
                 <h4>Tags</h4>

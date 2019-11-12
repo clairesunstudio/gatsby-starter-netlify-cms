@@ -1,13 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import './index.scss'
 
 export const HTMLContent = ({ content, className }) => (
   <div className={className} dangerouslySetInnerHTML={{ __html: content }} />
 )
 
-const Content = ({ content, className }) => (
-  <div className={className}>{content}</div>
-)
+const Content = ({ content, className }) => {
+  console.log(content)
+  return(  <div className={className}>{content}</div>)
+}
 
 Content.propTypes = {
   content: PropTypes.node,

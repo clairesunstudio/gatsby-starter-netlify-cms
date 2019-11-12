@@ -27,7 +27,6 @@ export default class Icon extends React.Component {
     // so re-render once the promise is finished by using state.
     this.loadAssets(name)
       .then(({ default: SVG }) => {
-        console.log(SVG())
         if (SVG) {
           const attr = {
             width: svgWidth || '40',
