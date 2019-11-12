@@ -6,8 +6,8 @@ import Icon from '../Icon'
 import './index.scss'
 
 const chevronSize = {
-  svgWidth: 12,
-  svgHeight: 20
+  svgWidth: 11,
+  svgHeight: 16
 }
 
 const svgSize = {

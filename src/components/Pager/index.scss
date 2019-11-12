@@ -1,13 +1,28 @@
-@import 'variables';
+@import 'custom-variables';
 
 .pagers {
-  border-top: 1px solid $color-gray-light;
-  border-bottom: 1px solid $color-gray-light;
+  //border-top: 1px solid $color-gray-light;
+  //border-bottom: 1px solid $color-gray-light;
   align-items: center;
 
   .col {
     padding: 0;
     flex-grow: 1;
+    align-self: stretch;
+    align-items: center;
+    
+    a {
+      display: flex;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid $color-gray-lighter;
+      
+      &:hover {
+        box-shadow: $box-shadow;
+        transition: $transition;
+      }
+    }
 
     &:first-child {
       flex-grow: 3;
@@ -19,10 +34,11 @@
         width: 100%;
         padding: 1rem 0;
         flex: 1 1 auto;
-        border-right: 1px solid $color-gray-lighter;
+        border-right: none;
         
         svg {
           margin: 0 1rem;
+          min-width: 12px;
         }
       }
     }
@@ -35,10 +51,11 @@
         width: 100%;
         padding: 1rem 0;
         flex: 1 1 auto;
-        border-left: 1px solid $color-gray-lighter;
+        border-left: none;
         
         svg {
           margin: 0 1rem;
+          min-width: 12px;
         }
       }
     }

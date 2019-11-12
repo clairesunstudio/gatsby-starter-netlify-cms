@@ -1,23 +1,5 @@
 @import 'variables';
 
-.pagers {
-  padding: 1rem 0;
-  border-top: 1px solid $color-gray-light;
-  border-bottom: 1px solid $color-gray-light;
-
-  .col {
-    text-align: center;
-
-    &:first-child {
-      text-align: left;
-    }
-    &:last-child {
-      text-align: right;
-    }
-  }
-}
-
-
 .taglist {
   padding: 0;
   list-style: none;
