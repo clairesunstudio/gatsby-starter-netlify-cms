@@ -56,8 +56,8 @@ class SiteHeader extends React.Component {
           <Link to="/">{brandName}</Link>
         </Navbar.Brand>
         <Nav pullRight>
-          <Link to="/"><span>My Portfolio</span></Link>
-          <Link to="/about"><span>My Resume</span></Link>
+          <Link to="/"><span>Portfolio</span></Link>
+          <Link to="/about"><span>Resume</span></Link>
         </Nav>
         </Container>
       </Navbar>

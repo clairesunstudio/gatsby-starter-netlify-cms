@@ -1,15 +1,16 @@
 ---
 templateKey: project
-title: PFML and UI Benefits Calculators
+title: Search.mass.gov
 image: /img/search.jpg
 date: 2019-06-02T22:42:51.326Z
-description: Design and build calculators for PFML and Unemployment
+description: The search application powering Mass.gov
 url: https://search.mass.gov
 tags:
   - React APP
   - design
   - development
   - UX
+  - API
 ---
 ## Overview
 
