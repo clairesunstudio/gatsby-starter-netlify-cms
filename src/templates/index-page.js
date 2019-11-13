@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
+import Helmet from 'react-helmet';
 import { Link, graphql } from 'gatsby'
 import { Row, Col, Container } from 'react-bootstrap'
 import Layout from '../components/Layout'
@@ -19,12 +20,22 @@ IndexPageTemplate.propTypes = {
 }
 
 const IndexPage = ({ data, location }) => {
-  const { tags } = data;
+  const { tags, site: { siteMetadata} } = data;
   const { search } = location;
   return (
-    <Layout>
-      <IndexPageTemplate {...tags} filterPath={search} />
-    </Layout>
+    <Fragment>
+      <Helmet
+        // eslint-disable-next-line react/prop-types
+        title={`${siteMetadata.title}`}
+        meta={[
+          { name: 'description', content: siteMetadata.description },
+          { name: 'keywords', content: siteMetadata.keywords }
+        ]}
+      />
+      <Layout>
+        <IndexPageTemplate {...tags} filterPath={search} />
+      </Layout>
+    </Fragment>
   )
 }
 
@@ -40,6 +51,9 @@ export default IndexPage
 
 export const pageQuery = graphql`
   query IndexPageTemplate {
+    site {
+      ...SiteMetadata
+    }
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
         intro {
