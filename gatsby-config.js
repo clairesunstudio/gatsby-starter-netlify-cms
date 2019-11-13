@@ -47,6 +47,9 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
+        name: 'Claire Sun Studio',
+        short_name: 'clairesunstudio',
+        description: `Minghua Sun's Portfolio`,
         icon: `${__dirname}/static/img/favicon.ico`
       }
     },
