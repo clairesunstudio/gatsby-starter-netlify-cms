@@ -16,6 +16,10 @@ import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 
 export const AboutPageTemplate = ({ title, content, contentComponent, image, name, job, blurb, info }) => {
   const PageContent = contentComponent || Content
+  const svgSize ={
+    svgWidth: 30,
+    svgHeight: 20
+  }
   return (
     <Fragment>
       <Divider />
@@ -59,7 +63,7 @@ export const AboutPageTemplate = ({ title, content, contentComponent, image, nam
           </div>
         </Col>
         <Col>
-        <SectionHeader>Education<Icon name='education'/></SectionHeader>
+        <SectionHeader>Education<Icon name='education' {...svgSize} /></SectionHeader>
             <Timeline>
               <TimelineEvent title="Graduate Certificate in Interactive Design"
                              sub="Dynamic Media Institute, MassArt, Boston, MA"
@@ -80,7 +84,7 @@ export const AboutPageTemplate = ({ title, content, contentComponent, image, nam
                              </ul>
               </TimelineEvent>
             </Timeline>
-        <SectionHeader>Experience<Icon name='job'/></SectionHeader>
+        <SectionHeader>Experience<Icon name='job' {...svgSize} /></SectionHeader>
             <Timeline>
               <TimelineEvent title="UX Designer & Engineer"
                              sub="Digital Services, EOTSS, Commonwealth of Massachusetts
@@ -115,7 +119,7 @@ export const AboutPageTemplate = ({ title, content, contentComponent, image, nam
                              date={["Feb. 2014","Sep. 2013"]}>
               </TimelineEvent>
             </Timeline>
-        <SectionHeader>Projects<Icon name='project'/></SectionHeader>
+        <SectionHeader>Projects<Icon name='project' {...svgSize} /></SectionHeader>
         <Timeline>
           <TimelineEvent title="The ABCs of High School Success"
                          sub="Mass.gov/SuccessABCs"
@@ -153,7 +157,7 @@ export const AboutPageTemplate = ({ title, content, contentComponent, image, nam
                          date="April 2015">
           </TimelineEvent>
         </Timeline>
-        <SectionHeader>volunteer<Icon name='volunteer'/></SectionHeader>
+        <SectionHeader>volunteer<Icon name='volunteer' {...svgSize} /></SectionHeader>
         <Timeline>
           <TimelineEvent title="Bright & Beautiful (有灵且美)"
                          sub="Design Director, Facebook Admin"
