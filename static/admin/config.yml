@@ -74,6 +74,7 @@ collections:
       - file: "src/pages/about/index.md"
         label: "About"
         name: "about"
+        widget: "object"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
           - {label: "Title", name: "title", widget: "string"}

@@ -14,7 +14,7 @@ import { Timeline, TimelineEvent } from '../components/Timeline'
 import Icon from '../components/Icon'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 
-export const AboutPageTemplate = ({ title, content, contentComponent, image, name, job, blurb, info }) => {
+export const AboutPageTemplate = ({ title, content, contentComponent, image, about: { name, job, blurb }, info }) => {
   const PageContent = contentComponent || Content
   const svgSize ={
     svgWidth: 30,
@@ -204,9 +204,11 @@ export const aboutPageQuery = graphql`
       html
       frontmatter {
         title
-        name
-        job
-        blurb
+        about {
+          name
+          job
+          blurb
+        }
         image {
           childImageSharp {
             fluid(maxWidth: 240, quality: 64) {

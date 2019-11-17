@@ -3,9 +3,18 @@ templateKey: 'about-page'
 path: /about
 title: About Me
 image: /img/profile-pic.jpg
-name: Minghua Sun
-job: Creative Technologist, UX Engineer
-blurb: I wear many hats in various projects — conducting user research, translating requirements into wireframes, writing and reviewing code, creating data visualizations and venturing into data analytics. I&apos;m the Product Owner of the Commonwealth Design System and I sometimes PM technical projects.
+main:
+  heading: Great coffee with no compromises
+  description: >
+    We hold our coffee to the highest standards from the shrub to the cup.
+    That’s why we’re meticulous and transparent about each step of the coffee’s
+    journey. We personally visit each farm to make sure the conditions are
+    optimal for the plants, farmers and the local environment.
+about:
+  name: Minghua Sun
+  job: Creative Technologist, UX Engineer
+  blurb: >
+    I wear many hats in various projects — conducting user research, translating requirements into wireframes, writing and reviewing code, creating data visualizations and venturing into data analytics. I&apos;m the Product Owner of the Commonwealth Design System and I sometimes PM technical projects.
 info:
   - {icon: "/img/icons/phone.svg", href: "tel:6178341062", text: "+1 (617) 834-1062"}
   - {icon: "/img/icons/location.svg", text: "Boston, MA"}
