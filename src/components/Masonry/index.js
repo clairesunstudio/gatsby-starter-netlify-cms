@@ -106,7 +106,7 @@ const Masonry = ({ data, tags, filterPath }) => {
         {FilterList}
       </div>
     </Container>
-    <div {...bind} class="masonry" style={{ height: Math.max(...heights) }}>
+    <div {...bind} className="masonry" style={{ height: Math.max(...heights) }}>
       {transitions.map(({ item, props: { xy, ...rest }, key }) => {
         return(<a.div key={key} style={{ transform: xy.interpolate((x, y) => `translate3d(${x}px,${y}px,0)`), ...rest }}>
           <ProjectCard title={item.frontmatter.title} text={item.frontmatter.description} image={item.frontmatter.image} button={{ link: item.fields.slug, text: 'Learn More'}}/>

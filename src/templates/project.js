@@ -64,12 +64,12 @@ const Project = ({ data: { project, pagers } }) => {
   const pager = pagers.edges.find((pager) => pager.node.id === project.id);
   const pagerProps = {
     left: {
-      slug: pager.previous.fields.slug,
-      title: pager.previous.frontmatter.title
+      slug: pager.previous && pager.previous.fields.slug,
+      title: pager.previous && pager.previous.frontmatter.title
     },
     right: {
-      slug: pager.next.fields.slug,
-      title: pager.next.frontmatter.title
+      slug: pager.next && pager.next.fields.slug,
+      title: pager.next && pager.next.frontmatter.title
     }
   }
   return (
