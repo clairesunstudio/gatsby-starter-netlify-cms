@@ -53,12 +53,13 @@ CMS.registerEditorComponent({
   label: "Collage",
   // Fields the user need to fill out when adding an instance of the component
   fields: [{
-    name: 'id',
-    label: 'Image Collage',
+    name: 'images',
+    label: 'Images',
     widget: 'list',
+    default: [{ image: '', text: ''}],
     fields: [
       {label: 'Image', name: 'image', widget: 'image'},
-      {label: 'Text', name: 'text', widget: 'text'}
+      {label: 'Text', name: 'text', widget: 'string'}
     ]
   }],
   // Pattern to identify a block as being an instance of this component
@@ -71,14 +72,17 @@ CMS.registerEditorComponent({
   },
   // Function to create a text block from an instance of this component
   toBlock: function(list) {
-    console.log(list.fields)
-    return `collage: [${list.fields.map((item) => item.image).join(', ')}]`;
+    if (list.images && list.images.length > 0) {
+      return `collage: [${list.images.map((item) => `{image: ${item.image}, text: ${item.text}}`).join(', ')}]`;
+    }
   },
   // Preview output for this component. Can either be a string or a React component
   // (component gives better render performance)
-  toPreview: function(obj) {
-    return (
-      '<img src="http://img.youtube.com/vi/' + obj.id + '/maxresdefault.jpg" alt="Youtube Video"/>'
-    );
+  toPreview: function(list) {
+    if (list.images && list.images.length > 0) {
+      return (list.images.map((item) => {
+        <img src={item.image} alt={item.text} />
+      }))
+    }
   }
 });
