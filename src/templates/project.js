@@ -19,7 +19,6 @@ export const ProjectTemplate = ({
   helmet
 }) => {
   const PostContent = contentComponent || Content
-  console.log(content)
   const projectHeaderProps = {
     title,
     subtitle: description

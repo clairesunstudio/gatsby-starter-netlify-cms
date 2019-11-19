@@ -45,3 +45,40 @@ CMS.registerEditorComponent({
     );
   }
 });
+
+CMS.registerEditorComponent({
+  // Internal id of the component
+  id: "collage",
+  // Visible label
+  label: "Collage",
+  // Fields the user need to fill out when adding an instance of the component
+  fields: [{
+    name: 'id',
+    label: 'Image Collage',
+    widget: 'list',
+    fields: [
+      {label: 'Image', name: 'image', widget: 'image'},
+      {label: 'Text', name: 'text', widget: 'text'}
+    ]
+  }],
+  // Pattern to identify a block as being an instance of this component
+  pattern: /^youtube (\S+)$/,
+  // Function to extract data elements from the regexp match
+  fromBlock: function(match) {
+    return {
+      id: match[1]
+    };
+  },
+  // Function to create a text block from an instance of this component
+  toBlock: function(obj) {
+    //console.log(obj.fields)
+    return 'youtube ' + obj.id;
+  },
+  // Preview output for this component. Can either be a string or a React component
+  // (component gives better render performance)
+  toPreview: function(obj) {
+    return (
+      '<img src="http://img.youtube.com/vi/' + obj.id + '/maxresdefault.jpg" alt="Youtube Video"/>'
+    );
+  }
+});

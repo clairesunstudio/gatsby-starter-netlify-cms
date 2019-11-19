@@ -7,7 +7,6 @@ export const HTMLContent = ({ content, className }) => (
 )
 
 const Content = ({ content, className }) => {
-  console.log(content)
   return(  <div className={className}>{content}</div>)
 }
 

@@ -7,15 +7,15 @@ import './index.scss'
 export const cardWidth = 350;
 export const cardPadding = 5;
 
-const ProjectCard = ({ title, text, button, image }) => {
+const ProjectCard = ({ title, text, image, link }) => {
   return (
       <Card
         style={{ width: `${cardWidth}px` }}
-        onClick={() => navigate(button.link)}>
+        onClick={() => navigate(link)}>
         { image && (
           <Link
             style={{ padding: `${cardPadding}px` }}
-            to={button.link}
+            to={link}
           >
             <PreviewCompatibleImage imageInfo={image} />
           </Link>
