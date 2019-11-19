@@ -8,7 +8,15 @@ import Layout from '../components/Layout'
 import Pager from '../components/Pager'
 import ProjectHeader from '../components/ProjectHeader'
 import Content, { HTMLContent } from '../components/Content'
+import rehypeReact from "rehype-react"
+import Counter from "../components/Counter"
 import './project.scss';
+
+
+const renderAst = new rehypeReact({
+  createElement: React.createElement,
+  components: { "interactive-counter": Counter },
+}).Compiler
 
 export const ProjectTemplate = ({
   content,
@@ -18,7 +26,7 @@ export const ProjectTemplate = ({
   title,
   helmet
 }) => {
-  const PostContent = contentComponent || Content
+  const PostContent = contentComponent || Content;
   const projectHeaderProps = {
     title,
     subtitle: description
@@ -28,7 +36,9 @@ export const ProjectTemplate = ({
       {helmet || ''}
       <ProjectHeader {...projectHeaderProps}/>
       <div className="container content">
-            <PostContent content={content} className="richtext"/>
+            {
+              renderAst(content)
+            }
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
                 <hr />
@@ -74,7 +84,7 @@ const Project = ({ data: { project, pagers } }) => {
   return (
     <Layout>
       <ProjectTemplate
-        content={project.html}
+        content={project.htmlAst}
         contentComponent={HTMLContent}
         description={project.frontmatter.description}
         helmet={
@@ -110,7 +120,7 @@ export const pageQuery = graphql`
   query ProjectByID($id: String!) {
     project: markdownRemark(id: { eq: $id }) {
       id
-      html
+      htmlAst
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
