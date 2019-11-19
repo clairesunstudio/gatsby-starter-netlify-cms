@@ -62,7 +62,7 @@ CMS.registerEditorComponent({
     ]
   }],
   // Pattern to identify a block as being an instance of this component
-  pattern: /^youtube (\S+)$/,
+  pattern: /^collage: (\S+)$/,
   // Function to extract data elements from the regexp match
   fromBlock: function(match) {
     return {
@@ -70,9 +70,9 @@ CMS.registerEditorComponent({
     };
   },
   // Function to create a text block from an instance of this component
-  toBlock: function(obj) {
-    //console.log(obj.fields)
-    return 'youtube ' + obj.id;
+  toBlock: function(list) {
+    console.log(list.fields)
+    return `collage: [${list.fields.map((item) => item.image).join(', ')}]`;
   },
   // Preview output for this component. Can either be a string or a React component
   // (component gives better render performance)
