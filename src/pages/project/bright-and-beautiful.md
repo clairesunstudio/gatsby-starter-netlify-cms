@@ -11,7 +11,11 @@ The Bright & Beautiful project is designed to unlock potentials and bring art an
 
 youtube JMNuv96GfHY
 
+
+
 ## Offline
+
+youtube [object Object],[object Object]
 
 Write a postcard and the story-T are two events that Bright & Beautiful hosted in 2013 to help connect the embroideress in rural China to people around the world and to help fulfill their dreams. I was the designer and art director for both events. I designed and illustrated a set of 4 postcards for the offline events that we hosted at Boston University for appreciating their hand-made art and asking people to write encouring words to the these young girls in rural Yunnan China. We selected over 200 pieces of embroideries from the same group of embroideress, and addded them onto T-shirts with a QR code on the back linking to their own personal stories and dreams. We collected over 100 postcards and all story-T are successfully sold via the Facebook and Wechat campaigns and the all profits were given back to help achieve their dreams.
 
