@@ -74,7 +74,7 @@ CMS.registerEditorComponent({
   toBlock: function(list) {
     if (list.images && list.images.length > 0) {
       list.images.map((item) => (
-        `<rehype-image src="../../${item.image}" text="${item.text}}"></rehype-image>`
+        `<rehype-image src="../..${item.image}" text="${item.text}}"></rehype-image>`
       ))
     }
   },
