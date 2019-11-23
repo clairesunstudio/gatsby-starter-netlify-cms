@@ -73,7 +73,9 @@ CMS.registerEditorComponent({
   // Function to create a text block from an instance of this component
   toBlock: function(list) {
     if (list.images && list.images.length > 0) {
-      return `collage: [${list.images.map((item) => `{image: ${item.image}, text: ${item.text}}`).join(', ')}]`;
+      list.images.map((item) => (
+        `<rehype-image src="../../${item.image}" text="${item.text}}"></rehype-image>`
+      ))
     }
   },
   // Preview output for this component. Can either be a string or a React component
