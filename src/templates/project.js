@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import rehypeReact from 'rehype-react'
 import { kebabCase } from 'lodash'
 import Helmet from 'react-helmet'
 import { graphql, Link } from 'gatsby'
@@ -8,14 +9,16 @@ import Layout from '../components/Layout'
 import Pager from '../components/Pager'
 import ProjectHeader from '../components/ProjectHeader'
 import Content, { HTMLContent } from '../components/Content'
-import rehypeReact from "rehype-react"
 import Counter from "../components/Counter"
+import LightBox from "../components/LightBox"
 import './project.scss';
 
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,
-  components: { "interactive-counter": Counter },
+  components: {
+    "lightbox": LightBox
+  }
 }).Compiler
 
 export const ProjectTemplate = ({
@@ -26,7 +29,7 @@ export const ProjectTemplate = ({
   title,
   helmet
 }) => {
-  const PostContent = contentComponent || Content;
+  //const PostContent = contentComponent || Content;
   const projectHeaderProps = {
     title,
     subtitle: description
