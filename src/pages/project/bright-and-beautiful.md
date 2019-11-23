@@ -5,15 +5,13 @@ description: Design for the non-profit project empowering young women in rural C
 image: /img/bnbgirls.jpg
 date: 2019-04-30T04:26:43.334Z
 ---
+collage: [{image: /img/BGPS.jpg, text: test}, {image: /img/billionaire.jpg, text: undefined}]
+
 ## Overview
 
 The Bright & Beautiful project is designed to unlock potentials and bring art and mindfulness to the “left-behind” girls in rural China. Bright & Beautiful have successfully hosted more than 6 summer/winter arts camps and other inspiring workshops at schools in rural China, served over 400 girls in rural China, and provided more than 50 volunteers from around the world with the opportunities to connect with each other and with the girls.
 
-<rehype-image src="../../img/projects/bnbgirls.jpg"></rehype-image>
-<grid>
-<rehype-image src="../../img/projects/bnbgirls.jpg"></rehype-image>
-<rehype-image src="../../img/projects/bnbgirls.jpg"></rehype-image>
-</grid>
+youtube JMNuv96GfHY
 
 ## Offline
 
