@@ -5,7 +5,9 @@ description: Design for the non-profit project empowering young women in rural C
 image: /img/bnbgirls.jpg
 date: 2019-04-30T04:26:43.334Z
 ---
-collage: [{image: /img/BGPS.jpg, text: test}, {image: /img/billionaire.jpg, text: undefined}]
+
+
+collage: \[{image: /img/BGPS.jpg, text: test}, {image: /img/billionaire.jpg, text: undefined}]
 
 ## Overview
 
