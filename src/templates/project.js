@@ -10,14 +10,21 @@ import Pager from '../components/Pager'
 import ProjectHeader from '../components/ProjectHeader'
 import Content, { HTMLContent } from '../components/Content'
 import Counter from "../components/Counter"
+import Icon from "../components/Icon"
 import LightBox from "../components/LightBox"
+import Photo from '../components/Photo';
+import GridComponent from '../components/Grid';
 import './project.scss';
 
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,
   components: {
-    "lightbox": LightBox
+    'counter': Counter,
+    'icon': Icon,
+    "lightbox": LightBox,
+    'rehype-image': Photo,
+    grid: GridComponent,
   }
 }).Compiler
 
@@ -34,6 +41,8 @@ export const ProjectTemplate = ({
     title,
     subtitle: description
   }
+  console.log(content)
+  console.log(renderAst(content))
   return (
     <section className="section">
       {helmet || ''}

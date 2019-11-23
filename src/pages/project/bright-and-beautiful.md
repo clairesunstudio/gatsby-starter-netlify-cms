@@ -9,11 +9,13 @@ date: 2019-04-30T04:26:43.334Z
 
 The Bright & Beautiful project is designed to unlock potentials and bring art and mindfulness to the “left-behind” girls in rural China. Bright & Beautiful have successfully hosted more than 6 summer/winter arts camps and other inspiring workshops at schools in rural China, served over 400 girls in rural China, and provided more than 50 volunteers from around the world with the opportunities to connect with each other and with the girls.
 
-<lightbox images=["/img/bnbgirls.jpg"]></lightbox>
+<rehype-image src="../../img/projects/bnbgirls.jpg"></rehype-image>
+<grid>
+<rehype-image src="../../img/projects/bnbgirls.jpg"></rehype-image>
+<rehype-image src="../../img/projects/bnbgirls.jpg"></rehype-image>
+</grid>
 
 ## Offline
-
-collage [object Object],[object Object]
 
 Write a postcard and the story-T are two events that Bright & Beautiful hosted in 2013 to help connect the embroideress in rural China to people around the world and to help fulfill their dreams. I was the designer and art director for both events. I designed and illustrated a set of 4 postcards for the offline events that we hosted at Boston University for appreciating their hand-made art and asking people to write encouring words to the these young girls in rural Yunnan China. We selected over 200 pieces of embroideries from the same group of embroideress, and addded them onto T-shirts with a QR code on the back linking to their own personal stories and dreams. We collected over 100 postcards and all story-T are successfully sold via the Facebook and Wechat campaigns and the all profits were given back to help achieve their dreams.
 

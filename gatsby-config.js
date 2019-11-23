@@ -81,6 +81,15 @@ module.exports = {
               destinationDir: 'static',
             },
           },
+          {
+            resolve: 'gatsby-remark-rehype-images',
+            // resolve: require.resolve('..'),
+            options: {
+              tag: 'rehype-image',
+              sharpFunction: 'fluid',
+              maxWidth: 600,
+            },
+          }
         ],
       },
     },
