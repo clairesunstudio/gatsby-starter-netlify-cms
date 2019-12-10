@@ -36,7 +36,7 @@ export const ProjectTemplate = ({
   title,
   helmet
 }) => {
-  //const PostContent = contentComponent || Content;
+  const PostContent = contentComponent || Content;
   const projectHeaderProps = {
     title,
     subtitle: description
@@ -49,7 +49,7 @@ export const ProjectTemplate = ({
       <ProjectHeader {...projectHeaderProps}/>
       <div className="container content">
             {
-              renderAst(content)
+              React.isValidElement(renderAst) ? renderAst(content) : <PostContent content={content} />
             }
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
