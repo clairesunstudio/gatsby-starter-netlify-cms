@@ -42,14 +42,14 @@ export const ProjectTemplate = ({
     subtitle: description
   }
   console.log(content)
-  console.log(renderAst(content))
+  console.log(React.isValidElement(content))
   return (
     <section className="section">
       {helmet || ''}
       <ProjectHeader {...projectHeaderProps}/>
       <div className="container content">
             {
-              React.isValidElement(renderAst(content)) ? renderAst(content) : <PostContent content={content} />
+              React.isValidElement(content) ? <PostContent content={content} /> : renderAst(content)
             }
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
