@@ -14,14 +14,12 @@ import Icon from "../components/Icon"
 import LightBox from "../components/LightBox"
 //import Photo from '../components/Photo';
 import GridComponent from '../components/Grid';
+import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 import './project.scss';
 
 const Image = (props) => {
-  //const props = JSON.parse(rehyped);
-  console.log(props)
-
   return (
-    <div />
+    <PreviewCompatibleImage imageInfo={props.childImageSharp} />
   );
 };
 
@@ -39,9 +37,6 @@ export const ProjectTemplate = ({
     title,
     subtitle: description
   }
-  console.log(content)
-  console.log(React.isValidElement(content))
-
   const renderAst = new rehypeReact({
     createElement: React.createElement,
     components: {
@@ -49,8 +44,11 @@ export const ProjectTemplate = ({
       'icon': Icon,
       "lightbox": LightBox,
       'rehype-image': (props) => {
+        const { src } = props;
+        const match = allImageSharp.edges.find((image) => image.node.parent.relativePath === src);
+        //console.log(match.node.parent.childImageSharp)
         return (
-          <Image {...props} images={allImageSharp} />
+          <Image {...props} childImageSharp={match.node.parent} />
         )
       },
       grid: GridComponent,

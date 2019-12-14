@@ -6,7 +6,7 @@ image: /img/bnbgirls.jpg
 date: 2019-04-30T04:26:43.334Z
 ---
 
-<rehype-image src="../../img/BGPS.jpg" text="text"></rehype-image>
+<rehype-image src="BGPS.jpg" text="text"></rehype-image>
 
 ## Overview
 
