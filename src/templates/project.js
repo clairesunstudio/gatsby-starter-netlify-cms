@@ -49,6 +49,7 @@ export const ProjectTemplate = ({
       <ProjectHeader {...projectHeaderProps}/>
       <div className="container content">
             {
+              // In admin, body (content) is a React component vs a data object containing an array of children html objects in the page.
               React.isValidElement(content) ? <PostContent content={content} /> : renderAst(content)
             }
             {tags && tags.length ? (
