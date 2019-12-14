@@ -12,21 +12,18 @@ import Content, { HTMLContent } from '../components/Content'
 import Counter from "../components/Counter"
 import Icon from "../components/Icon"
 import LightBox from "../components/LightBox"
-import Photo from '../components/Photo';
+//import Photo from '../components/Photo';
 import GridComponent from '../components/Grid';
 import './project.scss';
 
+const Image = (props) => {
+  //const props = JSON.parse(rehyped);
+  console.log(props)
 
-const renderAst = new rehypeReact({
-  createElement: React.createElement,
-  components: {
-    'counter': Counter,
-    'icon': Icon,
-    "lightbox": LightBox,
-    'rehype-image': Photo,
-    grid: GridComponent,
-  }
-}).Compiler
+  return (
+    <div />
+  );
+};
 
 export const ProjectTemplate = ({
   content,
@@ -34,7 +31,8 @@ export const ProjectTemplate = ({
   description,
   tags,
   title,
-  helmet
+  helmet,
+  allImageSharp
 }) => {
   const PostContent = contentComponent || Content;
   const projectHeaderProps = {
@@ -43,6 +41,22 @@ export const ProjectTemplate = ({
   }
   console.log(content)
   console.log(React.isValidElement(content))
+
+  const renderAst = new rehypeReact({
+    createElement: React.createElement,
+    components: {
+      'counter': Counter,
+      'icon': Icon,
+      "lightbox": LightBox,
+      'rehype-image': (props) => {
+        return (
+          <Image {...props} images={allImageSharp} />
+        )
+      },
+      grid: GridComponent,
+    }
+  }).Compiler
+
   return (
     <section className="section">
       {helmet || ''}
@@ -112,6 +126,7 @@ const Project = ({ data: { project, pagers, allImageSharp } }) => {
         }
         tags={project.frontmatter.tags}
         title={project.frontmatter.title}
+        allImageSharp={allImageSharp}
       />
       <section className="section">
         {

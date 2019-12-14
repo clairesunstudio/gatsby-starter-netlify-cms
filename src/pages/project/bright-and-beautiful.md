@@ -6,8 +6,7 @@ image: /img/bnbgirls.jpg
 date: 2019-04-30T04:26:43.334Z
 ---
 
-
-collage: \[{image: /img/BGPS.jpg, text: test}, {image: /img/billionaire.jpg, text: undefined}]
+<rehype-image src="../../img/BGPS.jpg" text="text"></rehype-image>
 
 ## Overview
 
