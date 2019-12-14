@@ -82,7 +82,7 @@ ProjectTemplate.propTypes = {
   helmet: PropTypes.object,
 }
 
-const Project = ({ data: { project, pagers } }) => {
+const Project = ({ data: { project, pagers, allImageSharp } }) => {
   const pager = pagers.edges.find((pager) => pager.node.id === project.id);
   const pagerProps = {
     left: {
@@ -94,6 +94,7 @@ const Project = ({ data: { project, pagers } }) => {
       title: pager.next && pager.next.frontmatter.title
     }
   }
+  console.log(allImageSharp)
   return (
     <Layout>
       <ProjectTemplate
@@ -164,5 +165,23 @@ export const pageQuery = graphql`
         }
       }
     }
+    allImageSharp {
+          edges {
+            node {
+              parent {
+                ... on File {
+                  id
+                  name
+                  relativePath
+                  childImageSharp {
+                    fluid(maxWidth: 120, quality: 100) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
   }
 `
