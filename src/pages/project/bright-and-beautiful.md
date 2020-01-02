@@ -5,8 +5,10 @@ description: Design for the non-profit project empowering young women in rural C
 image: /img/bnbgirls.jpg
 date: 2019-04-30T04:26:43.334Z
 ---
-
+<grid>
 <rehype-image src="BGPS.jpg" text="text"></rehype-image>
+<rehype-image src="BGPS.jpg" text="text"></rehype-image>
+</grid>
 
 ## Overview
 

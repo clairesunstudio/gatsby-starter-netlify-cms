@@ -1,11 +1,14 @@
 import React from 'react';
-import Img from 'gatsby-image';
 
+const gridStyle = {
+  display: 'grid',
+  margin: '2rem 0',
+  'grid-column-gap': '50px',
+  'grid-template-columns': 'repeat(3, auto)',
+}
 const GridComponent = props => (
-  <div className='grid'>
-    {props.children.filter(child => child !== '\n').map(child => (
-      <Img fluid={JSON.parse(child.props.rehyped)} />
-    ))}
+  <div className='grid' style={gridStyle}>
+    {props.children}
   </div>
 );
 
