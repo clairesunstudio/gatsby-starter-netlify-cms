@@ -35,7 +35,7 @@ CMS.registerEditorComponent({
   },
   // Function to create a text block from an instance of this component
   toBlock: function(obj) {
-    return 'youtube ' + obj.id;
+    return `<iframe width="560" height="315" src="https://www.youtube.com/embed/${obj.id}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
   },
   // Preview output for this component. Can either be a string or a React component
   // (component gives better render performance)
