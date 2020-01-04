@@ -155,7 +155,10 @@ export const pageQuery = graphql`
         tags
       }
     }
-    pagers: allMarkdownRemark {
+    pagers: allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date] }
+      filter: { frontmatter: { templateKey: { eq: "project" } } }
+    ) {
       edges {
         node {
           id
