@@ -24,7 +24,8 @@ const Pager = ({ left, right }) => {
             left.slug && (
               <Link to={left.slug}>
                 <Icon name='chevron-left' {...chevronSize} />
-                {left.title}
+                <span>{left.title}</span>
+
               </Link>
             )
           }
@@ -38,7 +39,7 @@ const Pager = ({ left, right }) => {
           {
             right.slug && (
               <Link to={right.slug}>
-                {right.title}
+                <span>{right.title}</span>
                 <Icon name='chevron-right' {...chevronSize}/>
               </Link>
             )
