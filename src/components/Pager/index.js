@@ -20,10 +20,14 @@ const Pager = ({ left, right }) => {
     <Container>
       <Row className="pagers">
         <Col>
-          <Link to={left.slug}>
-            <Icon name='chevron-left' {...chevronSize} />
-            {left.title}
-          </Link>
+          {
+            left.slug && (
+              <Link to={left.slug}>
+                <Icon name='chevron-left' {...chevronSize} />
+                {left.title}
+              </Link>
+            )
+          }
         </Col>
         <Col>
           <Link >
@@ -31,10 +35,15 @@ const Pager = ({ left, right }) => {
           </Link>
         </Col>
         <Col>
-          <Link to={right.slug}>
-            {right.title}
-            <Icon name='chevron-right' {...chevronSize}/>
-          </Link>
+          {
+            right.slug && (
+              <Link to={right.slug}>
+                {right.title}
+                <Icon name='chevron-right' {...chevronSize}/>
+              </Link>
+            )
+          }
+
         </Col>
       </Row>
     </Container>
