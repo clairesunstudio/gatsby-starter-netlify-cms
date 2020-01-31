@@ -1,93 +1,34 @@
-import React, { Component } from 'react'
-import Lightbox from 'react-images';
-import { graphql, StaticQuery } from 'gatsby'
-import PreviewCompatibleImage from '../PreviewCompatibleImage'
-import { Col } from 'react-bootstrap'
+import React from 'react';
+import Carousel, { Modal, ModalGateway } from 'react-images';
 
-class LightBox extends Component {
-  constructor(props) {
-    super(props);
-    console.log(props.data)
+const images = [{ source: '/static/2ffa153e58fcb5855de0027483f40843/8539d/billionaire.jpg' }, { source: '/static/1c1250396255d8519a0efad1a886be96/8539d/chapter55.jpg' }];
+
+class Component extends React.Component {
+  constructor(props){
+		super(props);
     this.state = {
-      shareOpen: false,
-      anchorEl: null,
-      lightbox: false,
-      photos: JSON.parse(props.images).map(image => Object.assign({ src: image })),
-      photo: 0
-    };
+      modalIsOpen: false
+    }
+	}
+  toggleModal = () => {
+    this.setState(state => ({ modalIsOpen: !state.modalIsOpen }));
   }
-
-  gotoPrevLightboxImage() {
-    const { photo } = this.state;
-    this.setState({ photo: photo - 1 });
-  }
-
-  gotoNextLightboxImage() {
-    const { photo } = this.state;
-    this.setState({ photo: photo + 1 });
-  }
-
-  openLightbox(photo, event) {
-    event.preventDefault();
-    this.setState({ lightbox: true, photo });
-  }
-
-  closeLightbox() {
-    this.setState({ lightbox: false });
-  }
-
   render() {
-    const { images } = this.props;
-    console.log(images)
+    const { modalIsOpen } = this.state;
+
     return (
       <div>
-        <Col md={8} className="media">
-          {images.map((image, i) => (
-            <Col md={6} key={`image_+${i}`}>
-              <a href={image.src} onClick={() => this.openLightbox(i)}>
-                <img src={'/img'}/>
-              </a>
-            </Col>
-          ))}
-        </Col>
-        <Lightbox
-          backdropClosesModal
-          images={this.state.photos}
-          currentImage={this.state.photo}
-          isOpen={this.state.lightbox}
-          onClickPrev={() => this.gotoPrevLightboxImage()}
-          onClickNext={() => this.gotoNextLightboxImage()}
-          onClose={() => this.closeLightbox()}
-        />
+        <div onClick={this.toggleModal}>click here!</div>
+        <ModalGateway>
+          {modalIsOpen ? (
+            <Modal onClose={this.toggleModal}>
+              <Carousel views={images} />
+            </Modal>
+          ) : null}
+        </ModalGateway>
       </div>
     );
   }
 }
 
-export default () => (
-  <StaticQuery
-    query={graphql`
-      query ImagesQuery {
-        allImageSharp {
-          edges {
-            node {
-              parent {
-                ... on File {
-                  id
-                  name
-                  relativePath
-                  childImageSharp {
-                    fluid(maxWidth: 120, quality: 100) {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    `}
-    render={(data) => <LightBox data={data} />}
-  />
-)
+export default Component;
