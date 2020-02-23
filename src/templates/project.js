@@ -44,9 +44,16 @@ export const ProjectTemplate = ({
       'counter': Counter,
       'icon': Icon,
       "lightbox": (props) => {
-        const { src } = props;
-        const match = allImageSharp.edges.find((image) => image.node.parent.relativePath === src);
-        const images = [{ source: match.node.parent.childImageSharp.fluid.src }];
+        const { src, children } = props
+        const images = [];
+        React.Children.forEach(children, element => {
+          if (React.isValidElement(element)) {
+            const match = allImageSharp.edges.find((image) => image.node.parent.relativePath === element.props.src);
+            images.push({ source: match.node.parent.childImageSharp.fluid.src })
+            //do something with source..
+          }
+        })
+        console.log(images)
         return (
           <LightBox images={images} />
         )

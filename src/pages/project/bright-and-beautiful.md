@@ -11,7 +11,11 @@ date: 2019-04-30T04:26:43.334Z
 <rehype-image src="BGPS.jpg" text="text"></rehype-image>
 </grid>
 
-<lightbox src="BGPS.jpg" text="text"></lightbox>
+<lightbox src="BGPS.jpg" text="text">
+<rehype-image src="billionaire.jpg" text="text"></rehype-image>
+<rehype-image src="BGPS.jpg" text="text"></rehype-image>
+<rehype-image src="chapter55.jpg" text="text"></rehype-image>
+</lightbox>
 
 ## Overview
 
