@@ -37,12 +37,20 @@ export const ProjectTemplate = ({
     title,
     subtitle: description
   }
+  const images = [{ source: '/static/2ffa153e58fcb5855de0027483f40843/3ff6e/billionaire.jpg' }, { source: '/static/1c1250396255d8519a0efad1a886be96/8539d/chapter55.jpg' }]
   const renderAst = new rehypeReact({
     createElement: React.createElement,
     components: {
       'counter': Counter,
       'icon': Icon,
-      "lightbox": LightBox,
+      "lightbox": (props) => {
+        const { src } = props;
+        const match = allImageSharp.edges.find((image) => image.node.parent.relativePath === src);
+        const images = [{ source: match.node.parent.childImageSharp.fluid.src }];
+        return (
+          <LightBox images={images} />
+        )
+      },
       'rehype-image': (props) => {
         const { src } = props;
         const match = allImageSharp.edges.find((image) => image.node.parent.relativePath === src);
@@ -60,7 +68,6 @@ export const ProjectTemplate = ({
       {helmet || ''}
       <ProjectHeader {...projectHeaderProps}/>
       <div className="container content">
-            <LightBox />
             {
               // In admin, body (content) is a React component vs a data object containing an array of children html objects in the page.
               React.isValidElement(content) ? <PostContent content={content} /> : renderAst(content)
@@ -107,7 +114,6 @@ const Project = ({ data: { project, pagers, allImageSharp } }) => {
       title: pager.next && pager.next.frontmatter.title
     }
   }
-  console.log(allImageSharp)
   return (
     <Layout>
       <ProjectTemplate
@@ -191,7 +197,7 @@ export const pageQuery = graphql`
                   name
                   relativePath
                   childImageSharp {
-                    fluid(maxWidth: 120, quality: 100) {
+                    fluid(quality: 100) {
                       ...GatsbyImageSharpFluid
                     }
                   }

@@ -11,6 +11,8 @@ date: 2019-04-30T04:26:43.334Z
 <rehype-image src="BGPS.jpg" text="text"></rehype-image>
 </grid>
 
+<lightbox src="BGPS.jpg" text="text"></lightbox>
+
 ## Overview
 
 The Bright & Beautiful project is designed to unlock potentials and bring art and mindfulness to the “left-behind” girls in rural China. Bright & Beautiful have successfully hosted more than 6 summer/winter arts camps and other inspiring workshops at schools in rural China, served over 400 girls in rural China, and provided more than 50 volunteers from around the world with the opportunities to connect with each other and with the girls.

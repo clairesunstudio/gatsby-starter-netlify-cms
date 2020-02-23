@@ -1,11 +1,10 @@
 import React from 'react';
 import Carousel, { Modal, ModalGateway } from 'react-images';
 
-const images = [{ source: '/static/2ffa153e58fcb5855de0027483f40843/8539d/billionaire.jpg' }, { source: '/static/1c1250396255d8519a0efad1a886be96/8539d/chapter55.jpg' }];
-
-class Component extends React.Component {
+class LightBox extends React.Component {
   constructor(props){
 		super(props);
+    console.log(props)
     this.state = {
       modalIsOpen: false
     }
@@ -15,14 +14,14 @@ class Component extends React.Component {
   }
   render() {
     const { modalIsOpen } = this.state;
-
+    console.log(this.props.images)
     return (
       <div>
         <div onClick={this.toggleModal}>click here!</div>
         <ModalGateway>
           {modalIsOpen ? (
             <Modal onClose={this.toggleModal}>
-              <Carousel views={images} />
+              <Carousel views={this.props.images} />
             </Modal>
           ) : null}
         </ModalGateway>
@@ -31,4 +30,4 @@ class Component extends React.Component {
   }
 }
 
-export default Component;
+export default LightBox;
