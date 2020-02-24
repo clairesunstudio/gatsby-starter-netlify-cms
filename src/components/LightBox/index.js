@@ -4,7 +4,6 @@ import Carousel, { Modal, ModalGateway } from 'react-images';
 class LightBox extends React.Component {
   constructor(props){
 		super(props);
-    console.log(props)
     this.state = {
       modalIsOpen: false
     }
@@ -14,14 +13,29 @@ class LightBox extends React.Component {
   }
   render() {
     const { modalIsOpen } = this.state;
-    console.log(this.props.images)
+    const { children, images} = this.props;
+    const getGridStyle = (col) => ({
+      display: 'grid',
+      margin: '2rem 0',
+      gridColumnGap: '50px',
+      gridTemplateColumns: `repeat(${col || 2}, auto)`,
+    })
+    const childrenWithProps = React.Children.map(children, (child) => {
+      if (React.isValidElement(child)) {
+        const clone = React.cloneElement(child, {
+          onClick:  this.toggleModal
+        });
+        console.log(clone)
+        return clone;
+        }
+      })
     return (
       <div>
-        <div onClick={this.toggleModal}>click here!</div>
+
         <ModalGateway>
           {modalIsOpen ? (
             <Modal onClose={this.toggleModal}>
-              <Carousel views={this.props.images} />
+              <Carousel views={images} />
             </Modal>
           ) : null}
         </ModalGateway>

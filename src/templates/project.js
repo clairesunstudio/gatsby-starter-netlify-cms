@@ -37,14 +37,13 @@ export const ProjectTemplate = ({
     title,
     subtitle: description
   }
-  const images = [{ source: '/static/2ffa153e58fcb5855de0027483f40843/3ff6e/billionaire.jpg' }, { source: '/static/1c1250396255d8519a0efad1a886be96/8539d/chapter55.jpg' }]
   const renderAst = new rehypeReact({
     createElement: React.createElement,
     components: {
       'counter': Counter,
       'icon': Icon,
       "lightbox": (props) => {
-        const { src, children } = props
+        const { children } = props
         const images = [];
         React.Children.forEach(children, element => {
           if (React.isValidElement(element)) {
@@ -53,9 +52,8 @@ export const ProjectTemplate = ({
             //do something with source..
           }
         })
-        console.log(images)
         return (
-          <LightBox images={images} />
+          <LightBox {...props} images={images} />
         )
       },
       'rehype-image': (props) => {
