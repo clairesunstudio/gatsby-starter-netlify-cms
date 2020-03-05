@@ -5,39 +5,48 @@ class LightBox extends React.Component {
   constructor(props){
 		super(props);
     this.state = {
-      modalIsOpen: false
+      currentModal: null
     }
 	}
-  toggleModal = () => {
-    this.setState(state => ({ modalIsOpen: !state.modalIsOpen }));
+  toggleModal = (index) => {
+    this.setState({ currentModal: index });
   }
   render() {
-    const { modalIsOpen } = this.state;
-    const { children, images} = this.props;
+    const { currentModal } = this.state;
+    const { children, images, col} = this.props;
     const getGridStyle = (col) => ({
       display: 'grid',
       margin: '2rem 0',
       gridColumnGap: '50px',
       gridTemplateColumns: `repeat(${col || 2}, auto)`,
     })
-    const childrenWithProps = React.Children.map(children, (child) => {
+    const childrenWithProps = React.Children.map(children, (child, i) => {
       if (React.isValidElement(child)) {
         const clone = React.cloneElement(child, {
-          onClick:  this.toggleModal
+          onClick: () => this.toggleModal(i)
         });
-        console.log(clone)
         return clone;
         }
       })
     return (
       <div>
-
+        <div className='grid' style={getGridStyle(col)}>
+          {childrenWithProps}
+        </div>
         <ModalGateway>
-          {modalIsOpen ? (
-            <Modal onClose={this.toggleModal}>
-              <Carousel views={images} />
+          {Number.isInteger(currentModal) ? (
+            <Modal
+              closeOnBackdropClick={true}
+              onClose={this.toggleModal}
+            >
+              <Carousel
+                currentIndex={currentModal}
+                components={{ Footer: null }}
+                views={images}
+              />
             </Modal>
           ) : null}
+
         </ModalGateway>
       </div>
     );

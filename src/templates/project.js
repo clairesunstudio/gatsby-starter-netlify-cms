@@ -17,9 +17,11 @@ import GridComponent from '../components/Grid';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 import './project.scss';
 
-const Image = (props) => {
+const ClickableImage = (props) => {
   return (
-    <PreviewCompatibleImage imageInfo={props.childImageSharp} />
+    <div onClick={props.onClick}>
+      <PreviewCompatibleImage imageInfo={props.childImageSharp} />
+    </div>
   );
 };
 
@@ -61,7 +63,7 @@ export const ProjectTemplate = ({
         const match = allImageSharp.edges.find((image) => image.node.parent.relativePath === src);
         //console.log(match.node.parent.childImageSharp)
         return (
-          <Image {...props} childImageSharp={match.node.parent} />
+          <ClickableImage {...props} childImageSharp={match.node.parent} />
         )
       },
       grid: GridComponent,
