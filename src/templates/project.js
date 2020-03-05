@@ -65,8 +65,7 @@ export const ProjectTemplate = ({
         return (
           <ClickableImage {...props} childImageSharp={match.node.parent} />
         )
-      },
-      grid: GridComponent,
+      }
     }
   }).Compiler
 
