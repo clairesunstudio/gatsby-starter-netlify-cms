@@ -13,7 +13,7 @@ import Counter from "../components/Counter"
 import Icon from "../components/Icon"
 import LightBox from "../components/LightBox"
 //import Photo from '../components/Photo';
-import GridComponent from '../components/Grid';
+// import GridComponent from '../components/Grid';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 import './project.scss';
 

@@ -8,11 +8,11 @@ const AboutPagePreview = ({ entry, getAsset, widgetFor, widgetsFor }) => {
     href: item.getIn(['data', 'href']),
     text: item.getIn(['data', 'text'])
   }))
-  
+
   const aboutEntry = entry.getIn(['data', 'about'])
   console.log(entry.getIn(['data', 'image']))
   console.log(getAsset(entry.getIn(['data', 'image'])))
-  
+
   // const about = widgetsFor('about').map((item) => ({
   //   name: item.getIn(['data', 'name']),
   //   job: item.getIn(['data', 'job']),
