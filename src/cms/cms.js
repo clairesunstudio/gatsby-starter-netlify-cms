@@ -7,6 +7,33 @@ import AboutPagePreview from './preview-templates/AboutPagePreview'
 import ProductPagePreview from './preview-templates/ProductPagePreview'
 import IndexPagePreview from './preview-templates/IndexPagePreview'
 import ProjectPreview from './preview-templates/ProjectPreview'
+import FileSystemBackend from 'netlify-cms-backend-fs'
+
+
+const config = { }
+console.log(process.env.NODE_ENV)
+// if (process.env.NODE_ENV === 'development') {
+//   // config.load_config_file = false
+//   config.backend = {
+//     "name": "file-system",
+//     "api_root": "/api"
+//   }
+//   config.display_url = "http://localhost:8000"
+//   CMS.registerBackend('file-system', FileSystemBackend)
+// } else {
+//   config.backend = {
+//     "name": "github",
+//     "repo": "ADARTA/gatsby-starter-netlify-cms",
+//     "branch": "master"
+//   }
+// }
+config.backend = {
+  "name": "file-system",
+  "api_root": "/api"
+}
+config.display_url = "http://localhost:8000"
+CMS.registerBackend('file-system', FileSystemBackend)
+CMS.init({config})
 
 CMS.registerMediaLibrary(uploadcare);
 CMS.registerMediaLibrary(cloudinary);
